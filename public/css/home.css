@@ -226,25 +226,6 @@ body {
   overflow: hidden;
 }
 
-.cadastro {
-    height: var(--tamanho-login);
-  background-image: url('../assets/imgs/cenario-ken.jpeg'); 
-  background-size: 100% 100%;
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  overflow: hidden;
-}
-
-.cadastro .container {
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-}
-
 .login .container {
   display: flex;
   justify-content: center; 
@@ -350,6 +331,106 @@ body {
 
 #div_erros_login {
   display: none
+}
+
+/* Cadastro*/
+
+.cadastro {
+  height: var(--tamanho-login);
+  background-image: url('../assets/imgs/cenario-ken.jpeg'); 
+  background-size: 100% 100%;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.cadastro .container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.card-cadastro {
+  width: 450px; 
+  background-color: #1a1a1a;
+  border: 4px solid #d12027; 
+  outline: 3px solid #ffcc00;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 0;
+  height: fit-content; 
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.8);
+}
+
+.card-cadastro h2 {
+  margin: 0 0 5px 0;
+  font-size: 24px;
+  color: #ffcc00;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0px #000;
+}
+
+.card-cadastro .formulario {
+  display: flex;
+  width: 85%;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.card-cadastro .formulario span {
+  font-size: 12px;
+  font-weight: 800;
+  color: white;
+  text-transform: uppercase;
+  margin-top: 6px;
+  margin-bottom: 2px;
+}
+
+.card-cadastro .formulario input {
+  background-color: #000;
+  border: 2px solid #ffcc00;
+  color: white;
+  text-align: center;
+  border-radius: 0;
+  margin: 0;
+  padding: 5px;
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.card-cadastro .formulario input:focus {
+  border-color: #d12027;
+  outline: none;
+}
+
+.card-cadastro .botao {
+  cursor: pointer;
+  font-family: "Barlow", sans-serif;
+  border: 2px solid #000;
+  border-radius: 0;
+  font-weight: 800;
+  font-size: 16px;
+  color: #fff;
+  background-color: #d12027;
+  width: 140px;
+  height: 35px;
+  align-self: center;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0px #000;
+  transition: 0.1s;
+}
+
+.card-cadastro .botao:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px #000;
 }
 
 /* FORMULARIO */
