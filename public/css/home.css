@@ -11,7 +11,7 @@ body {
   --tamanho-header: 80px;
   --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
-  --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-login: calc(100vh - var(--tamanho-header));
   --tamanho-footer: 65px;
 }
 
@@ -219,32 +219,61 @@ body {
 
 .login {
   height: var(--tamanho-login);
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
-  background-size: cover;
+  background-image: url('../assets/imgs/cenario-castelo-ryu.jpg'); 
+  background-size: 100% 100%;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.cadastro {
+    height: var(--tamanho-login);
+  background-image: url('../assets/imgs/cenario-ken.jpeg'); 
+  background-size: 100% 100%;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.cadastro .container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
 }
 
 .login .container {
-  justify-content: center;
+  display: flex;
+  justify-content: center; 
   align-items: center;
   height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
 }
 
 .card {
-  width: 50%;
-  background-color: #e5e5e5;
-  border-radius: 10px;
+  width: 400px;
+  background-color: #1a1a1a;
+  border: 4px solid #d12027; 
+  outline: 3px solid #ffcc00;
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  color: palevioletred;
   flex-direction: column;
   height: fit-content;
-  padding: 20px 0;
+  padding: 30px 0;
 }
 
 .card h2 {
   margin: 0;
-  font-size: 30px;
+  font-size: 32px;
+  color: #ffcc00;
+  text-transform: uppercase;
 }
 
 .formulario {
@@ -256,15 +285,24 @@ body {
 }
 
 .formulario span {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 800;
+  color: white;
+  text-transform: uppercase;
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
 
 .formulario input {
-  border: 2px solid #32b9cd;
+  background-color: #000;
+  border: 2px solid #ffcc00;
+  color: white;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 0;
   margin: 0;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 16px;
 }
 
 .formulario select {
@@ -287,16 +325,17 @@ body {
 .botao {
   cursor: pointer;
   font-family: "Barlow", sans-serif;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 18px;
+  border: 2px solid #000;
+  border-radius: 0;
+  font-weight: 800;
+  font-size: 20px;
   color: #fff;
-  background-color: #ED145B;
-  width: 120px;
-  height: 30px;
+  background-color: #d12027;
+  width: 150px;
+  height: 45px;
   align-self: center;
-  margin-top: 20px;
+  margin-top: 30px;
+  text-transform: uppercase;
 }
 
 .loading-div {
