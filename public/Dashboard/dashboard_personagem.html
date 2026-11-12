@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fight Tracker - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dashboard.js"></script>
+</head>
+
+<body>
+    <div class="box-pai">
+
+
+        <div class="sidebar">
+            <!-- Botão de destaque para abrir o formulário de nova luta -->
+            <button class="btn-nova-luta" onclick="abrirModalCadastro()">+ NOVA LUTA</button>
+
+            <div class="menu-navegacao">
+                <ul>
+                    <li><a href="dashboard-personagens.html" class="ativo">Personagens</a></li>
+                    <li><a href="dashboard-jogadores.html">Jogadores</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+
+            <div class="dashboard-header">
+                <h1>PAINEL DE RIVALIDADE</h1>
+                <div class="filtros-tempo">
+                    <span>Período:</span>
+                    <button class="btn-filtro ativo">Último Mês</button>
+                    <button class="btn-filtro">Todo o Tempo</button>
+                </div>
+            </div>
+            ->
+            <div class="kpis-container">
+                <div class="card-kpi">
+                    <h3>PERSONAGEM PREFERIDO <span>(Últimos 30 Dias)</span></h3>
+                    <h2 id="kpi-preferido-nome">RYU</h2>
+                    <p id="kpi-preferido-detalhes">Partidas: 142 | Vitórias: 37 | Derrotas: 126</p>
+                </div>
+
+                <div class="card-kpi">
+                    <h3>WIN RATE <span>(Mês Atual)</span></h3>
+                    <h2 id="kpi-winrate-valor">68%</h2>
+                    <p id="kpi-winrate-detalhes">V/D: 96/46</p>
+                </div>
+
+                <div class="card-kpi">
+                    <h3>NÊMESIS <span>(Últimos 30 Dias)</span></h3>
+                    <h2 id="kpi-nemesis-nome">CHUN-LI</h2>
+                    <p id="kpi-nemesis-detalhes">Derrotas: 48 | Rival</p>
+                </div>
+            </div>
+
+            <div class="charts-container">
+
+                <div class="card-chart chart-linha">
+                    <h3>TERMÔMETRO DE VITÓRIAS <span>(Jan-Fev)</span></h3>
+                    <canvas id="graficoVitorias"></canvas>
+                </div>
+
+                <div class="card-chart chart-rosca">
+                    <h3>DISTRIBUIÇÃO DO ELENCO <span>(Temporada Atual)</span></h3>
+                    <canvas id="graficoElenco"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
