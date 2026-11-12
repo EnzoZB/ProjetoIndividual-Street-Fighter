@@ -1,0 +1,230 @@
+/* =========================================
+   ESTILOS GERAIS E RESET BÁSICO
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #121418;
+    color: #ffffff;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+/* O container pai divide a tela entre Sidebar e Conteúdo */
+.box-pai {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* =========================================
+   BARRA LATERAL (SIDEBAR)
+   ========================================= */
+.sidebar {
+    width: 240px;
+    background-color: #1a1d24;
+    border-right: 2px solid #2a2e39;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 15px;
+    gap: 30px;
+}
+
+.btn-nova-luta {
+    background-color: #e63946;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    box-shadow: 0 4px 10px rgba(230, 57, 70, 0.3);
+}
+
+.btn-nova-luta:hover {
+    background-color: #c52833;
+}
+
+.menu-navegacao ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu-navegacao li a {
+    display: block;
+    color: #a0aab2;
+    text-decoration: none;
+    padding: 12px 15px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.menu-navegacao li a:hover,
+.menu-navegacao li a.ativo {
+    background-color: #2a2e39;
+    color: #ffffff;
+    border-left: 4px solid #e63946;
+}
+
+/* =========================================
+   CONTEÚDO PRINCIPAL
+   ========================================= */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    overflow-y: auto;
+}
+
+/* Cabeçalho da Dashboard */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #2a2e39;
+    padding-bottom: 15px;
+}
+
+.dashboard-header h1 {
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: #f1f1f1;
+}
+
+.filtros-tempo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #a0aab2;
+}
+
+.btn-filtro {
+    background-color: #1a1d24;
+    border: 1px solid #2a2e39;
+    color: #a0aab2;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.btn-filtro:hover,
+.btn-filtro.ativo {
+    background-color: #1d3557;
+    border-color: #457b9d;
+    color: #ffffff;
+}
+
+/* =========================================
+   KPIS (CARDS NUMÉRICOS)
+   ========================================= */
+.kpis-container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.card-kpi {
+    flex: 1;
+    background-color: #1a1d24;
+    border: 1px solid #2a2e39;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Detalhe de borda colorida nos cards principais para dar identidade */
+.card-kpi:nth-child(1) { border-top: 4px solid #ffb703; }
+.card-kpi:nth-child(2) { border-top: 4px solid #219ebc; }
+.card-kpi:nth-child(3) { border-top: 4px solid #e63946; }
+
+.card-kpi h3 {
+    font-size: 11px;
+    color: #a0aab2;
+    letter-spacing: 0.5px;
+}
+
+.card-kpi h3 span {
+    font-size: 10px;
+    color: #6c757d;
+}
+
+.card-kpi h2 {
+    font-size: 26px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.card-kpi p {
+    font-size: 12px;
+    color: #a0aab2;
+}
+
+/* =========================================
+   GRÁFICOS
+   ========================================= */
+.charts-container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    flex: 1;
+}
+
+.card-chart {
+    background-color: #1a1d24;
+    border: 1px solid #2a2e39;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.card-chart h3 {
+    font-size: 13px;
+    color: #a0aab2;
+    letter-spacing: 0.5px;
+}
+
+.card-chart h3 span {
+    font-size: 11px;
+    color: #6c757d;
+}
+
+/* Distribuição de tamanho entre os dois gráficos na tela */
+.chart-linha {
+    flex: 2; /* Ocupa o dobro do espaço (gráfico de linhas maior) */
+    min-height: 300px;
+}
+
+.chart-rosca {
+    flex: 1; /* Ocupa um espaço menor proporcionalmente */
+    min-height: 300px;
+    align-items: center;
+}
+
+/* Ajuste para o canvas do Chart.js não estourar o card */
+.card-chart canvas {
+    max-height: 240px;
+    width: 100% !important;
+}
