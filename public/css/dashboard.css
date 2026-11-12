@@ -1,21 +1,21 @@
 /* =========================================
-   ESTILOS GERAIS E RESET BÁSICO
+   ESTILOS GERAIS E RESET (Padrão Home)
    ========================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Barlow', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: #121418;
+    background-color: #000000;
     color: #ffffff;
     height: 100vh;
     overflow-x: hidden;
 }
 
-/* O container pai divide a tela entre Sidebar e Conteúdo */
+/* Container pai divide a tela entre Sidebar e Conteúdo */
 .box-pai {
     display: flex;
     width: 100%;
@@ -23,58 +23,63 @@ body {
 }
 
 /* =========================================
-   BARRA LATERAL (SIDEBAR)
+   BARRA LATERAL (SIDEBAR) - Estilo Arcade
    ========================================= */
 .sidebar {
-    width: 240px;
-    background-color: #1a1d24;
-    border-right: 2px solid #2a2e39;
+    width: 250px;
+    background-color: #1a1a1a;
+    border-right: 4px solid #d12027;
     display: flex;
     flex-direction: column;
-    padding: 25px 15px;
+    padding: 30px 20px;
     gap: 30px;
 }
 
 .btn-nova-luta {
-    background-color: #e63946;
+    background-color: #d12027;
     color: #ffffff;
-    border: none;
+    border: 2px solid #000;
     padding: 12px;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 6px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    border-radius: 0;
     cursor: pointer;
-    transition: background-color 0.2s;
-    box-shadow: 0 4px 10px rgba(230, 57, 70, 0.3);
+    text-transform: uppercase;
+    box-shadow: 4px 4px 0px #000;
+    transition: transform 0.1s, box-shadow 0.1s;
 }
 
-.btn-nova-luta:hover {
-    background-color: #c52833;
+.btn-nova-luta:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px #000;
 }
 
 .menu-navegacao ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
 .menu-navegacao li a {
     display: block;
-    color: #a0aab2;
+    color: #ffffff;
     text-decoration: none;
     padding: 12px 15px;
-    border-radius: 6px;
-    font-size: 15px;
-    font-weight: 500;
+    border-radius: 0;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-left: 4px solid transparent;
     transition: all 0.2s;
 }
 
 .menu-navegacao li a:hover,
 .menu-navegacao li a.ativo {
-    background-color: #2a2e39;
-    color: #ffffff;
-    border-left: 4px solid #e63946;
+    background-color: #000000;
+    color: #ffcc00;
+    border-left: 4px solid #ffcc00;
 }
 
 /* =========================================
@@ -82,11 +87,12 @@ body {
    ========================================= */
 .main-content {
     flex: 1;
-    padding: 30px;
+    padding: 35px;
     display: flex;
     flex-direction: column;
     gap: 25px;
     overflow-y: auto;
+    background-color: #000000;
 }
 
 /* Cabeçalho da Dashboard */
@@ -94,44 +100,52 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #2a2e39;
+    border-bottom: 4px solid #d12027;
     padding-bottom: 15px;
 }
 
 .dashboard-header h1 {
-    font-size: 22px;
+    font-size: 28px;
+    font-weight: 800;
     letter-spacing: 1px;
-    color: #f1f1f1;
+    color: #ffcc00;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px #000;
 }
 
 .filtros-tempo {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    color: #a0aab2;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 800;
+    color: white;
+    text-transform: uppercase;
 }
 
 .btn-filtro {
-    background-color: #1a1d24;
-    border: 1px solid #2a2e39;
-    color: #a0aab2;
-    padding: 6px 14px;
-    border-radius: 20px;
+    background-color: #1a1a1a;
+    border: 2px solid #ffcc00;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 0;
     cursor: pointer;
-    font-size: 13px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
     transition: all 0.2s;
 }
 
 .btn-filtro:hover,
 .btn-filtro.ativo {
-    background-color: #1d3557;
-    border-color: #457b9d;
+    background-color: #d12027;
+    border-color: #d12027;
     color: #ffffff;
 }
 
 /* =========================================
-   KPIS (CARDS NUMÉRICOS)
+   KPIS (CARDS NUMÉRICOS) - Estilo Card Street Fighter
    ========================================= */
 .kpis-container {
     display: flex;
@@ -141,46 +155,48 @@ body {
 
 .card-kpi {
     flex: 1;
-    background-color: #1a1d24;
-    border: 1px solid #2a2e39;
-    border-radius: 8px;
+    background-color: #1a1a1a;
+    border: 4px solid #d12027;
+    outline: 3px solid #ffcc00;
+    border-radius: 0;
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     position: relative;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.9);
 }
 
-/* Detalhe de borda colorida nos cards principais para dar identidade */
-.card-kpi:nth-child(1) { border-top: 4px solid #ffb703; }
-.card-kpi:nth-child(2) { border-top: 4px solid #219ebc; }
-.card-kpi:nth-child(3) { border-top: 4px solid #e63946; }
-
 .card-kpi h3 {
-    font-size: 11px;
-    color: #a0aab2;
+    font-size: 12px;
+    color: #ffffff;
+    font-weight: 800;
     letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .card-kpi h3 span {
-    font-size: 10px;
-    color: #6c757d;
+    font-size: 11px;
+    color: #ffcc00;
 }
 
 .card-kpi h2 {
-    font-size: 26px;
-    color: #ffffff;
-    font-weight: bold;
+    font-size: 32px;
+    color: #ffcc00;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px #000;
 }
 
 .card-kpi p {
-    font-size: 12px;
-    color: #a0aab2;
+    font-size: 13px;
+    font-weight: 600;
+    color: #b0bac2;
+    font-family: monospace;
 }
 
 /* =========================================
-   GRÁFICOS
+   GRÁFICOS - Padrão de Caixas Retangulares
    ========================================= */
 .charts-container {
     display: flex;
@@ -190,40 +206,43 @@ body {
 }
 
 .card-chart {
-    background-color: #1a1d24;
-    border: 1px solid #2a2e39;
-    border-radius: 8px;
+    background-color: #1a1a1a;
+    border: 4px solid #32b9cd; /* Azul ciano correspondente aos botões/detalhes da home */
+    outline: 2px solid #000;
+    border-radius: 0;
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.9);
 }
 
 .card-chart h3 {
-    font-size: 13px;
-    color: #a0aab2;
+    font-size: 14px;
+    color: #ffcc00;
+    font-weight: 800;
     letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .card-chart h3 span {
-    font-size: 11px;
-    color: #6c757d;
+    font-size: 12px;
+    color: #ffffff;
 }
 
 /* Distribuição de tamanho entre os dois gráficos na tela */
 .chart-linha {
-    flex: 2; /* Ocupa o dobro do espaço (gráfico de linhas maior) */
+    flex: 2; 
     min-height: 300px;
 }
 
 .chart-rosca {
-    flex: 1; /* Ocupa um espaço menor proporcionalmente */
+    flex: 1; 
     min-height: 300px;
     align-items: center;
 }
 
-/* Ajuste para o canvas do Chart.js não estourar o card */
+/* Ajuste para o canvas do Chart.js respeitar o card */
 .card-chart canvas {
     max-height: 240px;
     width: 100% !important;

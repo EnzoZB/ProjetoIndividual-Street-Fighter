@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fight Tracker - Painel de Rivalidade</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dashboard.js"></script>
+</head>
+
+<body>
+    <div class="box-pai">
+
+        <div class="sidebar">
+
+            <button class="btn-nova-luta" onclick="abrirModalCadastro()">+ NOVA LUTA</button>
+
+            <div class="menu-navegacao">
+                <ul>
+                    <li><a href="dashboard-personagem.html">Personagens</a></li>
+                    <li><a href="dashboard-jogadores.html" class="ativo">Jogadores</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="main-content">
+
+            <div class="dashboard-header">
+                <h1>PAINEL DE RIVALIDADE <span>:: VISÃO: JOGADORES REAIS</span></h1>
+                
+                <div class="filtros-tempo">
+                    <span>Período:</span>
+                    <button class="btn-filtro">Último Mês</button>
+                    <button class="btn-filtro ativo">Todo o Tempo</button>
+                    <button class="btn-filtro">Visão: Jogadores</button>
+                </div>
+            </div>
+            
+            <div class="kpis-container">
+                
+
+                <div class="card-kpi" style="border-color: #d12027; outline-color: #ffcc00;">
+                    <h3>MAIOR FREGUÊS <span>(Todo o Tempo)</span></h3>
+                    <h2 id="kpi-fregues-nome">PEDRO</h2>
+                    <p id="kpi-fregues-detalhes">Minhas Vitórias: 34 &nbsp;&nbsp;&nbsp;&nbsp; Aproveitamento: 78%</p>
+                </div>
+
+
+                <div class="card-kpi" style="border-color: #32b9cd; outline-color: #32b9cd;">
+                    <h3>DESEMPENHO GERAL <span>(Todo o Tempo)</span></h3>
+                    <h2 id="kpi-desempenho-valor">62%</h2>
+                    <p id="kpi-desempenho-detalhes">Vitórias/Derrotas: 184 / 112</p>
+                </div>
+
+
+                <div class="card-kpi" style="border-color: #d12027; outline-color: #d12027;">
+                    <h3>PIOR ALGOZ <span>(Últimos 30 Dias)</span></h3>
+                    <h2 id="kpi-algoz-nome" style="color: #d12027;">BRUNO</h2>
+                    <p id="kpi-algoz-detalhes">Minhas Derrotas: 18 &nbsp;&nbsp;&nbsp;&nbsp; Aproveitamento: 35%</p>
+                </div>
+
+            </div>
+
+            <div class="charts-container">
+
+
+                <div class="card-chart chart-linha">
+                    <h3>CONFRONTO DIRETO - TOP 5 RIVAIS <span>(Todo o Tempo)</span></h3>
+                    <canvas id="graficoConfrontoDireto"></canvas>
+                </div>
+
+                <div class="card-chart chart-rosca">
+                    <h3>FREQUÊNCIA DE PARTIDAS <span>(Mês Atual)</span></h3>
+                    <canvas id="graficoFrequenciaPartidas"></canvas>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
