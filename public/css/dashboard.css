@@ -1,5 +1,5 @@
 /* =========================================
-   ESTILOS GERAIS E RESET (Padrão Home)
+   ESTILOS GERAIS E RESET (Modern Dark UI)
    ========================================= */
 * {
     margin: 0;
@@ -9,13 +9,12 @@
 }
 
 body {
-    background-color: #000000;
+    background-color: #16171b; 
     color: #ffffff;
     height: 100vh;
     overflow-x: hidden;
 }
 
-/* Container pai divide a tela entre Sidebar e Conteúdo */
 .box-pai {
     display: flex;
     width: 100%;
@@ -23,63 +22,65 @@ body {
 }
 
 /* =========================================
-   BARRA LATERAL (SIDEBAR) - Estilo Arcade
+   BARRA LATERAL (SIDEBAR)
    ========================================= */
 .sidebar {
-    width: 250px;
-    background-color: #1a1a1a;
-    border-right: 4px solid #d12027;
+    width: 260px;
+    background-color: #1e1f24; /* Levemente mais claro que o fundo */
     display: flex;
     flex-direction: column;
     padding: 30px 20px;
     gap: 30px;
+    border-right: 1px solid #2a2c33;
 }
 
 .btn-nova-luta {
-    background-color: #d12027;
+    background-color: #f04444; /* Vermelho vibrante do protótipo */
     color: #ffffff;
-    border: 2px solid #000;
-    padding: 12px;
+    border: none;
+    padding: 14px 12px;
     font-family: 'Barlow', sans-serif;
     font-size: 16px;
     font-weight: 800;
-    border-radius: 0;
+    border-radius: 8px; /* Bordas arredondadas do protótipo */
     cursor: pointer;
     text-transform: uppercase;
-    box-shadow: 4px 4px 0px #000;
-    transition: transform 0.1s, box-shadow 0.1s;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-nova-luta:hover {
+    background-color: #ff5252;
 }
 
 .btn-nova-luta:active {
-    transform: translate(4px, 4px);
-    box-shadow: 0px 0px 0px #000;
+    transform: scale(0.98);
 }
 
 .menu-navegacao ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 8px;
 }
 
 .menu-navegacao li a {
-    display: block;
-    color: #ffffff;
+    display: flex;
+    align-items: center;
+    color: #9ca3af; /* Cinza claro inativo */
     text-decoration: none;
     padding: 12px 15px;
-    border-radius: 0;
     font-size: 16px;
     font-weight: 600;
-    text-transform: uppercase;
-    border-left: 4px solid transparent;
+    border-radius: 6px;
     transition: all 0.2s;
+    border-left: 3px solid transparent;
 }
 
 .menu-navegacao li a:hover,
 .menu-navegacao li a.ativo {
-    background-color: #000000;
-    color: #ffcc00;
-    border-left: 4px solid #ffcc00;
+    background-color: rgba(255, 255, 255, 0.05); /* Fundo sutil do item ativo */
+    color: #ffffff;
+    border-left: 3px solid #f04444; /* Filete vermelho no item ativo */
 }
 
 /* =========================================
@@ -87,12 +88,11 @@ body {
    ========================================= */
 .main-content {
     flex: 1;
-    padding: 35px;
+    padding: 30px 40px;
     display: flex;
     flex-direction: column;
     gap: 25px;
     overflow-y: auto;
-    background-color: #000000;
 }
 
 /* Cabeçalho da Dashboard */
@@ -100,52 +100,63 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 4px solid #d12027;
     padding-bottom: 15px;
+    /* Linha divisória removida para ficar mais limpo como no protótipo */
 }
 
 .dashboard-header h1 {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 800;
     letter-spacing: 1px;
-    color: #ffcc00;
+    color: #ffffff; /* Texto branco no protótipo */
     text-transform: uppercase;
-    text-shadow: 2px 2px 0px #000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dashboard-header h1::before,
+.dashboard-header h1::after {
+    content: "::";
+    color: #3b82f6; /* Detalhe azul nos pontinhos */
 }
 
 .filtros-tempo {
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 16px;
-    font-weight: 800;
-    color: white;
-    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    color: #9ca3af;
 }
 
 .btn-filtro {
-    background-color: #1a1a1a;
-    border: 2px solid #ffcc00;
-    color: white;
-    padding: 8px 16px;
-    border-radius: 0;
+    background-color: transparent;
+    border: 1px solid #4b5563; /* Borda cinza arredondada */
+    color: #9ca3af;
+    padding: 8px 18px;
     cursor: pointer;
     font-family: 'Barlow', sans-serif;
     font-size: 14px;
-    font-weight: 800;
-    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 20px; /* Formato pílula */
     transition: all 0.2s;
 }
 
-.btn-filtro:hover,
-.btn-filtro.ativo {
-    background-color: #d12027;
-    border-color: #d12027;
+.btn-filtro:hover {
+    border-color: #9ca3af;
     color: #ffffff;
 }
 
+.btn-filtro.ativo {
+    background-color: rgba(59, 130, 246, 0.15); /* Fundo azul translúcido */
+    border-color: #3b82f6; /* Borda azul viva */
+    color: #60a5fa;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+}
+
 /* =========================================
-   KPIS (CARDS NUMÉRICOS) - Estilo Card Street Fighter
+   KPIS (CARDS NUMÉRICOS)
    ========================================= */
 .kpis-container {
     display: flex;
@@ -155,48 +166,82 @@ body {
 
 .card-kpi {
     flex: 1;
-    background-color: #1a1a1a;
-    border: 4px solid #d12027;
-    outline: 3px solid #ffcc00;
-    border-radius: 0;
-    padding: 20px;
+    background-color: #1e1f24;
+    border-radius: 8px; /* Cantos arredondados */
+    padding: 20px 24px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    position: relative;
-    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.9);
+    justify-content: space-between;
+    gap: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra suave moderna */
+    border: 1px solid transparent;
 }
 
+/* Card 1: Personagem Preferido (Amarelo) */
+.card-kpi:nth-child(1) {
+    border-color: rgba(250, 204, 21, 0.4);
+}
+.card-kpi:nth-child(1) h3 { color: #facc15; }
+.card-kpi:nth-child(1) h2 { text-shadow: 0 0 12px rgba(250, 204, 21, 0.3); }
+
+/* Card 2: Win Rate (Azul) */
+.card-kpi:nth-child(2) {
+    border-color: rgba(59, 130, 246, 0.4);
+}
+.card-kpi:nth-child(2) h3 { color: #60a5fa; }
+.card-kpi:nth-child(2) h2 { text-shadow: 0 0 12px rgba(59, 130, 246, 0.3); }
+
+/* Card 3: Nêmesis (Vermelho) */
+.card-kpi:nth-child(3) {
+    border-color: rgba(240, 68, 68, 0.4);
+}
+.card-kpi:nth-child(3) h3 { color: #f87171; }
+.card-kpi:nth-child(3) h2 { text-shadow: 0 0 12px rgba(240, 68, 68, 0.3); }
+
 .card-kpi h3 {
-    font-size: 12px;
-    color: #ffffff;
-    font-weight: 800;
+    font-size: 13px;
+    font-weight: 700;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .card-kpi h3 span {
     font-size: 11px;
-    color: #ffcc00;
+    color: #6b7280;
+    font-weight: 600;
+    display: block; /* Joga o "(Últimos 30 dias)" para a linha de baixo como no protótipo */
+    margin-top: 4px;
 }
 
 .card-kpi h2 {
-    font-size: 32px;
-    color: #ffcc00;
+    font-size: 46px; /* Números grandes e imponentes */
+    color: #ffffff;
     font-weight: 800;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    text-shadow: 2px 2px 0px #000;
+    margin: 10px 0;
 }
 
 .card-kpi p {
     font-size: 13px;
+    font-weight: 500;
+    color: #6b7280;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-kpi p strong {
+    color: #9ca3af;
     font-weight: 600;
-    color: #b0bac2;
-    font-family: monospace;
 }
 
 /* =========================================
-   GRÁFICOS - Padrão de Caixas Retangulares
+   GRÁFICOS
    ========================================= */
 .charts-container {
     display: flex;
@@ -206,44 +251,50 @@ body {
 }
 
 .card-chart {
-    background-color: #1a1a1a;
-    border: 4px solid #32b9cd; /* Azul ciano correspondente aos botões/detalhes da home */
-    outline: 2px solid #000;
-    border-radius: 0;
-    padding: 20px;
+    background-color: #1e1f24;
+    border-radius: 10px;
+    border: 1px solid #2a2c33; /* Borda bem sutil cinza escuro */
+    padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.9);
+    gap: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
 .card-chart h3 {
     font-size: 14px;
-    color: #ffcc00;
-    font-weight: 800;
+    color: #e5e7eb;
+    font-weight: 700;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .card-chart h3 span {
     font-size: 12px;
-    color: #ffffff;
+    color: #9ca3af;
+    font-weight: 500;
 }
 
-/* Distribuição de tamanho entre os dois gráficos na tela */
-.chart-linha {
+.chart-linha { 
     flex: 2; 
-    min-height: 300px;
+    min-height: 350px; 
 }
 
-.chart-rosca {
+.chart-rosca { 
     flex: 1; 
-    min-height: 300px;
-    align-items: center;
+    min-height: 350px; 
+    align-items: center; 
 }
 
-/* Ajuste para o canvas do Chart.js respeitar o card */
-.card-chart canvas {
-    max-height: 240px;
-    width: 100% !important;
+.chart-rosca h3 { 
+    width: 100%; 
+}
+
+.card-chart canvas { 
+    max-height: 280px; 
+    width: 100% !important; 
 }

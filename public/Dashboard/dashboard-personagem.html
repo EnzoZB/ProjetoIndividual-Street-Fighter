@@ -4,76 +4,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fight Tracker - Dashboard</title>
+    <title>Fight Tracker - Dashboard Personagens</title>
     <link rel="stylesheet" href="../css/dashboard.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script src="js/dashboard.js" defer></script>
 </head>
 
 <body>
     <div class="box-pai">
 
+        <aside class="sidebar">
+            <button type="button" class="btn-nova-luta" onclick="abrirModalCadastro()">+ NOVA LUTA</button>
 
-        <div class="sidebar">
-
-            <button class="btn-nova-luta" onclick="abrirModalCadastro()">+ NOVA LUTA</button>
-
-            <div class="menu-navegacao">
+            <nav class="menu-navegacao">
                 <ul>
                     <li><a href="dashboard-personagem.html" class="ativo">Personagens</a></li>
                     <li><a href="dashboard-jogadores.html">Jogadores</a></li>
                 </ul>
-            </div>
-        </div>
+            </nav>
+        </aside>
 
-        <div class="main-content">
+        <main class="main-content">
 
-            <div class="dashboard-header">
-                <h1>PAINEL DE RIVALIDADE</h1>
+            <header class="dashboard-header">
+                <h1>PAINEL DE RIVALIDADE :: PERSONAGENS</h1>
                 <div class="filtros-tempo">
                     <span>Período:</span>
-                    <button class="btn-filtro ativo">Último Mês</button>
-                    <button class="btn-filtro">Todo o Tempo</button>
+                    <button type="button" class="btn-filtro ativo">Último Mês</button>
+                    <button type="button" class="btn-filtro">Todo o Tempo</button>
                 </div>
-            </div>
+            </header>
             
-            <div class="kpis-container">
-                <div class="card-kpi">
+            <section class="kpis-container">
+                
+                <article class="card-kpi">
                     <h3>PERSONAGEM PREFERIDO <span>(Últimos 30 Dias)</span></h3>
                     <h2 id="kpi-preferido-nome">RYU</h2>
-                    <p id="kpi-preferido-detalhes">Partidas: 142 | Vitórias: 37 | Derrotas: 126</p>
-                </div>
+                    <p>
+                        Partidas: <strong id="kpi-preferido-partidas">142</strong> | 
+                        V/D: <strong id="kpi-preferido-vd">37/126</strong>
+                    </p>
+                </article>
 
-                <div class="card-kpi">
-                    <h3>WIN RATE <span>(Mês Atual)</span></h3>
+                <article class="card-kpi">
+                    <h3>WIN RATE GERAL <span>(Mês Atual)</span></h3>
                     <h2 id="kpi-winrate-valor">68%</h2>
-                    <p id="kpi-winrate-detalhes">V/D: 96/46</p>
-                </div>
+                    <p>
+                        Vitórias: <strong id="kpi-winrate-vitorias">96</strong> | 
+                        Derrotas: <strong id="kpi-winrate-derrotas">46</strong>
+                    </p>
+                </article>
 
-                <div class="card-kpi">
+                <article class="card-kpi">
                     <h3>NÊMESIS <span>(Últimos 30 Dias)</span></h3>
                     <h2 id="kpi-nemesis-nome">CHUN-LI</h2>
-                    <p id="kpi-nemesis-detalhes">Derrotas: 48 | Rival</p>
-                </div>
-            </div>
+                    <p>
+                        Derrotas: <strong id="kpi-nemesis-derrotas">48</strong> | 
+                        Tipo: <strong id="kpi-nemesis-tipo">Rival</strong>
+                    </p>
+                </article>
 
-            <div class="charts-container">
+            </section>
 
-                <div class="card-chart chart-linha">
+            <section class="charts-container">
+
+                <article class="card-chart chart-linha">
                     <h3>TERMÔMETRO DE VITÓRIAS <span>(Jan-Fev)</span></h3>
                     <canvas id="graficoVitorias"></canvas>
-                </div>
+                </article>
 
-                <div class="card-chart chart-rosca">
+                <article class="card-chart chart-rosca">
                     <h3>DISTRIBUIÇÃO DO ELENCO <span>(Temporada Atual)</span></h3>
                     <canvas id="graficoElenco"></canvas>
-                </div>
-            </div>
+                </article>
 
-        </div>
+            </section>
+
+        </main>
     </div>
 
 </body>
-
 </html>
