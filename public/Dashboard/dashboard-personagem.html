@@ -14,74 +14,74 @@
 <body>
     <div class="box-pai">
 
-        <aside class="sidebar">
-            <button type="button" class="btn-nova-luta" onclick="abrirModalCadastro()">+ NOVA LUTA</button>
+        <div class="sidebar">
+            <a href="nova-luta.html" class="btn-nova-luta">+ NOVA LUTA</a>
 
-            <nav class="menu-navegacao">
+            <div class="menu-navegacao">
                 <ul>
                     <li><a href="dashboard-personagem.html" class="ativo">Personagens</a></li>
                     <li><a href="dashboard-jogadores.html">Jogadores</a></li>
                 </ul>
-            </nav>
-        </aside>
+            </div>
+        </div>
 
-        <main class="main-content">
+        <div class="main-content">
 
-            <header class="dashboard-header">
+            <div class="dashboard-header">
                 <h1>PAINEL DE RIVALIDADE :: PERSONAGENS</h1>
                 <div class="filtros-tempo">
                     <span>Período:</span>
                     <button type="button" class="btn-filtro ativo">Último Mês</button>
                     <button type="button" class="btn-filtro">Todo o Tempo</button>
                 </div>
-            </header>
+            </div>
             
-            <section class="kpis-container">
+            <div class="kpis-container">
                 
-                <article class="card-kpi">
+                <div class="card-kpi">
                     <h3>PERSONAGEM PREFERIDO <span>(Últimos 30 Dias)</span></h3>
                     <h2 id="kpi-preferido-nome">RYU</h2>
                     <p>
                         Partidas: <strong id="kpi-preferido-partidas">142</strong> | 
                         V/D: <strong id="kpi-preferido-vd">37/126</strong>
                     </p>
-                </article>
+                </div>
 
-                <article class="card-kpi">
+                <div class="card-kpi">
                     <h3>WIN RATE GERAL <span>(Mês Atual)</span></h3>
                     <h2 id="kpi-winrate-valor">68%</h2>
                     <p>
                         Vitórias: <strong id="kpi-winrate-vitorias">96</strong> | 
                         Derrotas: <strong id="kpi-winrate-derrotas">46</strong>
                     </p>
-                </article>
+                </div>
 
-                <article class="card-kpi">
+                <div class="card-kpi">
                     <h3>NÊMESIS <span>(Últimos 30 Dias)</span></h3>
                     <h2 id="kpi-nemesis-nome">CHUN-LI</h2>
                     <p>
                         Derrotas: <strong id="kpi-nemesis-derrotas">48</strong> | 
                         Tipo: <strong id="kpi-nemesis-tipo">Rival</strong>
                     </p>
-                </article>
+                </div>
 
-            </section>
+            </div>
 
-            <section class="charts-container">
+            <div class="charts-container">
 
-                <article class="card-chart chart-linha">
+                <div class="card-chart chart-linha">
                     <h3>TERMÔMETRO DE VITÓRIAS <span>(Jan-Fev)</span></h3>
                     <canvas id="graficoVitorias"></canvas>
-                </article>
+                </div>
 
-                <article class="card-chart chart-rosca">
+                <div class="card-chart chart-rosca">
                     <h3>DISTRIBUIÇÃO DO ELENCO <span>(Temporada Atual)</span></h3>
                     <canvas id="graficoElenco"></canvas>
-                </article>
+                </div>
 
-            </section>
+            </div>
 
-        </main>
+        </div>
     </div>
 
 </body>
