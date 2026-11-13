@@ -339,7 +339,7 @@ a.btn-nova-luta:active {
     padding: 10px 0;
 }
 
-/* Sobrescreve os selects brancos/arredondados do home.css para o estilo arcade preto/amarelo */
+
 .card-cadastro .formulario select,
 .formulario select {
     background-color: #000000 !important;
