@@ -115,6 +115,40 @@ a.btn-nova-luta:active {
     text-shadow: 2px 2px 0px #000000;
 }
 
+.logo-container {
+    width: 100%;
+    min-height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo-sidebar {
+    max-width: 90%;
+    max-height: 100px;
+    object-fit: contain; 
+}
+
+.btn-sair {
+    margin-top: auto; 
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 15px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-left: 4px solid transparent;
+    transition: all 0.2s;
+}
+
+.btn-sair:hover {
+    background-color: #b8686827;
+    color: #d12027; 
+    border-left: 4px solid #d12027;
+}
+
 /* =========================================
    CONTEÚDO PRINCIPAL E HEADER DA DASHBOARD
    ========================================= */

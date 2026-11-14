@@ -14,6 +14,13 @@
     <div class="box-pai">
 
         <div class="sidebar">
+
+            <div class="logo-container">
+
+                <img src="../assets/imgs/logo-street-tracker-removebg-preview.png" alt="Logo do Site" class="logo-sidebar">
+            
+            </div>
+
             <a href="nova-luta.html" class="btn-nova-luta">+ NOVA LUTA</a>
 
             <div class="menu-navegacao">
@@ -22,6 +29,9 @@
                     <li><a href="dashboard-jogadores.html">Jogadores</a></li>
                 </ul>
             </div>
+
+            <a href="../index.html" class="btn-sair">SAIR</a>
+
         </div>
 
 
@@ -115,5 +125,53 @@
         </div>
     </div>
 </body>
+
+<script>
+    function registrarLuta() {
+
+        var idUsuario = sessionStorage.ID_USUARIO;
+
+        var resultado = document.getElementById("select_resultado").value;
+        var rival = document.getElementById("input_adversario").value;
+        var personagem1 = document.getElementById("select_meu_personagem").value;
+        var personagem2 = document.getElementById("select_personagem_adversario").value;
+        var dataPartida = document.getElementById("input_data_luta").value;
+
+        if (resultado == "" || rival == "" || personagem1 == "" || personagem2 == "" || dataPartida == "") {
+            alert("Por favor, preencha todos os campos da luta!");
+            return false; 
+        }
+
+
+        fetch("/nova-luta/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                resultadoServer: resultado,
+                rivalServer: rival,
+                personagem1Server: personagem1,
+                personagem2Server: personagem2,
+                dataServer: dataPartida,
+                idUsuarioServer: idUsuario
+            })
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                alert("Combate registado com sucesso!");
+
+                document.getElementById("select_resultado").value = "";
+                document.getElementById("input_adversario").value = "";
+                document.getElementById("select_meu_personagem").value = "";
+                document.getElementById("select_personagem_adversario").value = "";
+                document.getElementById("input_data_luta").value = "";
+            } else {
+                console.log("Houve um erro ao tentar registar a luta!");
+            }
+        }).catch(function (erro) {
+            console.log("Erro: ", erro);
+        });
+    }
+</script>
 
 </html>
