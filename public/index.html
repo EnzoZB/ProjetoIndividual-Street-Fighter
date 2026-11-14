@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StreetTracker | home</title>
+    <title>StreetTracker | Home</title>
     <link rel="stylesheet" href="css/home.css">
 </head>
 
@@ -12,7 +12,7 @@
     <div class="header">
         <div class="container">
             <a href="index.html" class="titulo">
-                <img src="assets/imgs/logo-street-tracker-removebg-preview.png" class="logo-img">
+                <img src="assets/imgs/logo-street-tracker-removebg-preview.png" class="logo-img" alt="StreetTracker">
             </a>
             <ul class="navbar">
                 <li class="agora">
@@ -22,12 +22,12 @@
                     <a href="#sobre">Projeto</a>
                 </li>
                 <li>
-                    <a href="#jornada">Jornada</a>
+                    <a href="#sistema">Sistema</a>
                 </li>
                 <li>
-                    <a href="login.html">Sistema</a>
+                    <a href="#jornada">Jornada</a>
                 </li>
-                <li>|</li>
+                <li class="separador"></li>
                 <li>
                     <a href="login.html">Login</a>
                 </li>
@@ -39,21 +39,33 @@
     </div>
 
     <div class="banner_principal">
-        <div class="area_player1">
-            <img src="assets/imgs/ryu.png">
-            <h2>A RIVALIDADE<br>1 contra 1</h2>
-        </div>
-        <div class="area_player2">
-            <h2>AGORA TEM UM<br>PLACAR DEFINITIVO.</h2>
-            <img src="assets/imgs/ken.png">
-        </div>
-        <div class="elementos_centrais">
-            <img src="assets/imgs/vs.png">
-            <button class="btn-registrar" onclick="window.location.href='cadastro.html'">REGISTRAR</button>
+        <div class="banner_overlay"></div>
+        <div class="container banner_conteudo">
+            <div class="area_player1">
+                <div class="personagem_aura_blue">
+                    <img src="assets/imgs/ryu.png" alt="Ryu">
+                </div>
+                <div class="banner_texto">
+                    <h2>A RIVALIDADE<br>1 contra 1</h2>
+                </div>
+            </div>
+
+            <div class="elementos_centrais">
+                <img src="assets/imgs/vs.png" alt="VS" class="logo_vs">
+                <button class="btn-registrar" onclick="window.location.href='cadastro.html'">REGISTRAR</button>
+            </div>
+
+            <div class="area_player2">
+                <div class="banner_texto">
+                    <h2>AGORA TEM UM<br>PLACAR DEFINITIVO.</h2>
+                </div>
+                <div class="personagem_aura_red">
+                    <img src="assets/imgs/ken.png" alt="Ken">
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- ÁREA SOBRE O PROJETO -->
     <div id="sobre" class="sobre_projeto">
         <div class="container">
             <div class="sobre_conteudo">
@@ -66,13 +78,11 @@
                 </div>
                 <div class="sobre_texto">
                     <p>O StreetTracker revive a era de ouro das disputas locais, trazendo a emoção do fliperama para o conforto da sua casa com um placar definitivo para as suas partidas de Street Fighter II e uma Dashboard com dados acumulados.</p>
-                    <!-- Link direcionado para a área de diferenciais logo abaixo -->
-                    <a href="#diferenciais" class="link-amarelo">Veja o que o sistema faz ➔</a>
+                    <a href="#sistema" class="link-amarelo">Veja o que o sistema faz ➔</a>
                 </div>
             </div>
         </div>
     </div>
-
 
     <div id="sistema" class="sistema_section">
         <div class="container flex-coluna">
@@ -80,7 +90,6 @@
             <h2 class="titulo-sistema">Toda a experiência de um torneio no seu navegador</h2>
             
             <div class="sistema_cards">
-                
                 <div class="card_sistema">
                     <img src="assets/imgs/icon-grafico.png" alt="Estatísticas de Combate">
                     <div class="card_sistema_texto">
@@ -104,15 +113,12 @@
                         <p>Processamento de dados em tempo real.</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 
-    <!-- SEÇÃO SÓCIO-EMOCIONAL -->
     <div id="jornada" class="jornada_socio">
         <div class="container flex-coluna">
-            
             <div class="header-jornada">
                 <h2 class="titulo-jornada">JORNADA SOCIOEMOCIONAL - PLAYER 1</h2>
                 <div class="health-bar-container">
@@ -121,7 +127,6 @@
             </div>
 
             <div class="jornada_cards">
-                
                 <div class="card_round">
                     <h3 class="round-title">ROUND 1: O DESPERTAR<br><span>(Linha da Vida & Valores)</span></h3>
                     <div class="card-content">
@@ -134,7 +139,7 @@
                 <div class="card_round">
                     <h3 class="round-title round-red">ROUND 2: O BOSS FINAL<br><span>(Desafios & Superação)</span></h3>
                     <div class="card-content">
-                        <p>A maior dificuldade foi unir o layout temático com o <span class="destaque">banco de dados</span> e a lógica de processamento em tempo real (HTML/CSS + BD).</p>
+                        <p>A maior dificuldade foi estruturar toda a lógica do placar e unir o layout temático de fliperama com o processamento das partidas em tempo real.</p>
                         <p>A vitória veio ao superar os bugs técnicos e ver o placar registrar corretamente as vitórias, validando todo o esforço.</p>
                     </div>
                     <img src="assets/imgs/pixel-sword.png" class="card-icon" alt="Sword Icon">
@@ -148,11 +153,9 @@
                     </div>
                     <img src="assets/imgs/pixel-medal.png" class="card-icon" alt="Medal Icon">
                 </div>
-
             </div>
 
             <p class="press-start blink">PRESS START</p>
-
         </div>
     </div>
 
