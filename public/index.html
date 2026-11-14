@@ -5,26 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StreetTracker | home</title>
-
     <link rel="stylesheet" href="css/home.css">
-
 </head>
 
 <body>
     <div class="header">
-
         <div class="container">
-
             <a href="index.html" class="titulo">
                 <img src="assets/imgs/logo-street-tracker-removebg-preview.png" class="logo-img">
             </a>
-
             <ul class="navbar">
                 <li class="agora">
                     <a href="index.html">Inicial</a>
                 </li>
                 <li>
                     <a href="#sobre">Projeto</a>
+                </li>
+                <li>
+                    <a href="#jornada">Jornada</a>
                 </li>
                 <li>
                     <a href="login.html">Sistema</a>
@@ -37,57 +35,126 @@
                     <a href="cadastro.html">Cadastro</a>
                 </li>
             </ul>
-
         </div>
-
     </div>
 
     <div class="banner_principal">
-
         <div class="area_player1">
-
             <img src="assets/imgs/ryu.png">
             <h2>A RIVALIDADE<br>1 contra 1</h2>
-
         </div>
-
         <div class="area_player2">
-
             <h2>AGORA TEM UM<br>PLACAR DEFINITIVO.</h2>
             <img src="assets/imgs/ken.png">
-
         </div>
-
         <div class="elementos_centrais">
-
             <img src="assets/imgs/vs.png">
             <button class="btn-registrar" onclick="window.location.href='cadastro.html'">REGISTRAR</button>
-
         </div>
     </div>
 
+    <!-- ÁREA SOBRE O PROJETO -->
     <div id="sobre" class="sobre_projeto">
         <div class="container">
             <div class="sobre_conteudo">
-                
                 <div class="sobre_imagem">
                     <img src="assets/imgs/arcade.png" alt="Máquina de Fliperama Arcade">
                 </div>
-    
                 <div class="sobre_titulos">
                     <span class="tag">SOBRE O PROJETO</span>
                     <h2>Reviva a era de ouro dos contras 1 vs 1</h2>
                 </div>
-    
                 <div class="sobre_texto">
                     <p>O StreetTracker revive a era de ouro das disputas locais, trazendo a emoção do fliperama para o conforto da sua casa com um placar definitivo para as suas partidas de Street Fighter II e uma Dashboard com dados acumulados.</p>
-                    <a href="login.html" class="link-amarelo">Veja o que o sistema faz </a>
+                    <!-- Link direcionado para a área de diferenciais logo abaixo -->
+                    <a href="#diferenciais" class="link-amarelo">Veja o que o sistema faz ➔</a>
                 </div>
-    
             </div>
         </div>
     </div>
 
-</body>
 
+    <div id="sistema" class="sistema_section">
+        <div class="container flex-coluna">
+            <span class="tag-titulo">O QUE O SISTEMA FAZ POR VOCÊ</span>
+            <h2 class="titulo-sistema">Toda a experiência de um torneio no seu navegador</h2>
+            
+            <div class="sistema_cards">
+                
+                <div class="card_sistema">
+                    <img src="assets/imgs/icon-grafico.png" alt="Estatísticas de Combate">
+                    <div class="card_sistema_texto">
+                        <h3>Estatísticas de Combate</h3>
+                        <p>Análise de desempenho e taxa de vitórias.</p>
+                    </div>
+                </div>
+                
+                <div class="card_sistema">
+                    <img src="assets/imgs/icon-vs-mini.png" alt="Registro de Confrontos">
+                    <div class="card_sistema_texto">
+                        <h3>Registro de Confrontos</h3>
+                        <p>Cadastro rápido de lutas e rounds.</p>
+                    </div>
+                </div>
+                
+                <div class="card_sistema">
+                    <img src="assets/imgs/icon-engrenagem.png" alt="Cálculos e Processamento">
+                    <div class="card_sistema_texto">
+                        <h3>Cálculos e Processamento</h3>
+                        <p>Processamento de dados em tempo real.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- SEÇÃO SÓCIO-EMOCIONAL -->
+    <div id="jornada" class="jornada_socio">
+        <div class="container flex-coluna">
+            
+            <div class="header-jornada">
+                <h2 class="titulo-jornada">JORNADA SOCIOEMOCIONAL - PLAYER 1</h2>
+                <div class="health-bar-container">
+                    <div class="health-bar-fill"></div>
+                </div>
+            </div>
+
+            <div class="jornada_cards">
+                
+                <div class="card_round">
+                    <h3 class="round-title">ROUND 1: O DESPERTAR<br><span>(Linha da Vida & Valores)</span></h3>
+                    <div class="card-content">
+                        <p>O interesse por jogos começou com os arcades clássicos. O projeto nasce da vontade de resgatar o <span class="destaque">couch multiplayer</span> (1x1 local).</p>
+                        <p>Valores principais escolhidos: <span class="destaque">Nostalgia, conexão real e rivalidade saudável</span>, características marcantes do Street Fighter II.</p>
+                    </div>
+                    <img src="assets/imgs/pixel-heart.png" class="card-icon" alt="Heart Icon">
+                </div>
+                
+                <div class="card_round">
+                    <h3 class="round-title round-red">ROUND 2: O BOSS FINAL<br><span>(Desafios & Superação)</span></h3>
+                    <div class="card-content">
+                        <p>A maior dificuldade foi unir o layout temático com o <span class="destaque">banco de dados</span> e a lógica de processamento em tempo real (HTML/CSS + BD).</p>
+                        <p>A vitória veio ao superar os bugs técnicos e ver o placar registrar corretamente as vitórias, validando todo o esforço.</p>
+                    </div>
+                    <img src="assets/imgs/pixel-sword.png" class="card-icon" alt="Sword Icon">
+                </div>
+                
+                <div class="card_round">
+                    <h3 class="round-title">ROUND 3: HALL DA FAMA<br><span>(Gratidão)</span></h3>
+                    <div class="card-content">
+                        <p>Gratidão especial ao meu pai, <span class="destaque">Denis Bertoluci</span>, por ser minha maior inspiração para entrar no mundo da tecnologia.</p>
+                        <p>Agradeço também aos professores e amigos pelo apoio constante para destravar o código durante a jornada.</p>
+                    </div>
+                    <img src="assets/imgs/pixel-medal.png" class="card-icon" alt="Medal Icon">
+                </div>
+
+            </div>
+
+            <p class="press-start blink">PRESS START</p>
+
+        </div>
+    </div>
+
+</body>
 </html>
