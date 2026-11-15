@@ -8,30 +8,30 @@
 
     <title>StreetTracker | Cadastro</title>
 
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/login_cadastro.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
 
 <body>
-    <!--header inicio-->
     <div class="header">
-
         <div class="container">
-
             <a href="index.html" class="titulo">
-                <img src="assets/imgs/logo-street-tracker-removebg-preview.png" class="logo-img">
+                <img src="assets/imgs/logo-street-tracker-removebg-preview.png" class="logo-img" alt="StreetTracker">
             </a>
-
             <ul class="navbar">
                 <li>
                     <a href="index.html">Inicial</a>
                 </li>
                 <li>
-                    <a href="index.html#sobre">Projeto</a>
+                    <a href="#sobre">Projeto</a>
                 </li>
                 <li>
-                    <a href="login.html">Sistema</a>
+                    <a href="#sistema">Sistema</a>
                 </li>
+                <li>
+                    <a href="#jornada">Jornada</a>
+                </li>
+                <li class="separador"></li>
                 <li>
                     <a href="login.html">Login</a>
                 </li>
@@ -39,11 +39,8 @@
                     <a href="cadastro.html">Cadastro</a>
                 </li>
             </ul>
-
         </div>
-
     </div>
-    <!--header fim-->
 
     <div class="cadastro">
 
@@ -97,110 +94,110 @@
             </div>
         </div>
     </div>
-<script>
-    function aguardar() {
-        div_aguardar.style.display = "flex";
-    }
-
-    function finalizarAguardar(texto) {
-        div_aguardar.style.display = "none";
-
-        if (texto) {
-            cardErro.style.display = "block";
-            mensagem_erro.innerHTML = texto;
-        }
-    }
-
-    function limparFormulario() {
-        nome_input.value = "";
-        nickname_input.value = "";
-        cpf_input.value = "";
-        email_input.value = "";
-        senha_input.value = "";
-        confirmacao_senha_input.value = "";
-    }
-
-    function cadastrar() {
-        aguardar();
-
-        var nomeVar = nome_input.value;
-        var nicknameVar = nickname_input.value;
-        var cpfVar = cpf_input.value;
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
-        var confirmacaoSenhaVar = confirmacao_senha_input.value;
-
-        if (
-            nomeVar == "" ||
-            nicknameVar == "" ||
-            cpfVar == "" ||
-            emailVar == "" ||
-            senhaVar == "" ||
-            confirmacaoSenhaVar == ""
-        ) {
-            cardErro.style.display = "block";
-            mensagem_erro.innerHTML =
-                "(Mensagem de erro para todos os campos em branco)";
-
-            finalizarAguardar();
-            return false;
-        } 
-        else if (senhaVar != confirmacaoSenhaVar) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "As senhas não coincidem!";
-        finalizarAguardar();
-        return false;
-        } 
-        else {
-            setInterval(sumirMensagem, 5000);
+    <script>
+        function aguardar() {
+            div_aguardar.style.display = "flex";
         }
 
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
+        function finalizarAguardar(texto) {
+            div_aguardar.style.display = "none";
 
-                nomeServer: nomeVar,
-                nicknameServer: nicknameVar,
-                cpfServer: cpfVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar,
-                
-            }),
-        })
-            .then(function (resposta) {
-                console.log("resposta: ", resposta);
+            if (texto) {
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML = texto;
+            }
+        }
 
-                if (resposta.ok) {
-                    cardErro.style.display = "block";
+        function limparFormulario() {
+            nome_input.value = "";
+            nickname_input.value = "";
+            cpf_input.value = "";
+            email_input.value = "";
+            senha_input.value = "";
+            confirmacao_senha_input.value = "";
+        }
 
-                    mensagem_erro.innerHTML =
-                        "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+        function cadastrar() {
+            aguardar();
 
-                    setTimeout(() => {
-                        window.location = "login.html";
-                    }, "2000");
+            var nomeVar = nome_input.value;
+            var nicknameVar = nickname_input.value;
+            var cpfVar = cpf_input.value;
+            var emailVar = email_input.value;
+            var senhaVar = senha_input.value;
+            var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
-                    limparFormulario();
-                    finalizarAguardar();
-                } else {
-                    throw "Houve um erro ao tentar realizar o cadastro!";
-                }
-            })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
+            if (
+                nomeVar == "" ||
+                nicknameVar == "" ||
+                cpfVar == "" ||
+                emailVar == "" ||
+                senhaVar == "" ||
+                confirmacaoSenhaVar == ""
+            ) {
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML =
+                    "(Mensagem de erro para todos os campos em branco)";
+
                 finalizarAguardar();
-            });
+                return false;
+            }
+            else if (senhaVar != confirmacaoSenhaVar) {
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML = "As senhas não coincidem!";
+                finalizarAguardar();
+                return false;
+            }
+            else {
+                setInterval(sumirMensagem, 5000);
+            }
 
-        return false;
-    }
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
 
-    function sumirMensagem() {
-        cardErro.style.display = "none";
-    }
-</script>
+                    nomeServer: nomeVar,
+                    nicknameServer: nicknameVar,
+                    cpfServer: cpfVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar,
+
+                }),
+            })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+
+                    if (resposta.ok) {
+                        cardErro.style.display = "block";
+
+                        mensagem_erro.innerHTML =
+                            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                        setTimeout(() => {
+                            window.location = "login.html";
+                        }, "2000");
+
+                        limparFormulario();
+                        finalizarAguardar();
+                    } else {
+                        throw "Houve um erro ao tentar realizar o cadastro!";
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                    finalizarAguardar();
+                });
+
+            return false;
+        }
+
+        function sumirMensagem() {
+            cardErro.style.display = "none";
+        }
+    </script>
 </body>
 
 </html>

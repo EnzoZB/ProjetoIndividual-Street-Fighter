@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* =========================================
+   VARIÁVEIS GLOBAIS E RESET (ESSENCIAL)
+========================================= */
+:root {
+  --cor-fundo-1: #000000;
+  --cor-fundo-2: #111116;
+  --cor-fundo-cards: #15151b;
+  
+  --cor-vermelho: #d12027;
+  --cor-amarelo: #ffcc00;
+  --cor-azul: #234383;
+  
+  --cor-texto-claro: #ffffff;
+  --cor-texto-medio: #aaaaaa;
+
+  --tamanho-header: 80px;
+  --tamanho-login: calc(100vh - var(--tamanho-header));
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Barlow', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--cor-fundo-1);
+  color: var(--cor-texto-claro);
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  margin: auto;
+}
+
+/* =========================================
+   HEADER (CABEÇALHO)
+========================================= */
+.header {
+  height: var(--tamanho-header);
+  background-color: var(--cor-fundo-1);
+  border-bottom: 4px solid var(--cor-vermelho);
+  box-sizing: border-box;
+}
+
+.header .container {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.header a {
+  text-decoration: none;
+  color: var(--cor-texto-claro);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.header a:hover {
+  color: var(--cor-amarelo);
+}
+
+.agora a {
+  font-weight: 800;
+  color: var(--cor-amarelo);
+  border-bottom: 2px solid var(--cor-amarelo);
+}
+
+.navbar {
+  width: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.logo-img {
+  height: 60px;
+  width: auto; 
+  display: block;
+}
+
+/* =========================================
+   PÁGINAS DE LOGIN E CADASTRO
+========================================= */
+.login, .cadastro {
+  height: var(--tamanho-login);
+  background-size: 100% 100%;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.login { background-image: url('../assets/imgs/cenario-castelo-ryu.jpg'); }
+.cadastro { background-image: url('../assets/imgs/cenario-ken.jpeg'); }
+
+.login .container, .cadastro .container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Base padronizada para os cartões (.card, .card-login e .card-cadastro) */
+.card, .card-login, .card-cadastro {
+  background-color: var(--cor-fundo-cards);
+  border: 4px solid var(--cor-vermelho); 
+  outline: 3px solid var(--cor-amarelo);
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: fit-content;
+}
+
+/* Regras específicas do Login */
+.card-login {
+  width: 400px;
+  justify-content: space-evenly;
+  padding: 30px 0;
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.8);
+}
+
+.card-login h2 {
+  color: var(--cor-amarelo);
+  text-transform: uppercase;
+  margin: 0; 
+  font-size: 32px;
+  text-shadow: 2px 2px 0px #000;
+}
+
+.card-login .formulario {
+  height: 90%;
+  width: 80%;
+  justify-content: space-around;
+}
+
+.card-login .campo span { 
+  font-size: 16px; 
+  margin-top: 15px; 
+  margin-bottom: 5px; 
+}
+
+.card-login .campo input { 
+  padding: 10px; 
+  font-size: 16px; 
+  margin-bottom: 10px; 
+}
+
+.card-login .botao { 
+  width: 150px; 
+  height: 45px; 
+  font-size: 20px; 
+  margin-top: 30px; 
+  box-shadow: 4px 4px 0px #000;
+  transition: 0.1s;
+}
+
+.card-login .botao:active {
+  transform: translate(4px, 4px); 
+  box-shadow: 0px 0px 0px #000; 
+}
+
+/* Regras específicas do Cadastro */
+.card-cadastro {
+  width: 450px; 
+  padding: 15px 0;
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.8);
+}
+
+.card-cadastro h2 { 
+  color: var(--cor-amarelo);
+  text-transform: uppercase;
+  margin: 0 0 5px 0; 
+  font-size: 24px; 
+  text-shadow: 2px 2px 0px #000; 
+}
+
+.card-cadastro .formulario {
+  width: 85%;
+  gap: 0px;
+}
+
+.card-cadastro .campo span { 
+  font-size: 12px; 
+  margin-top: 6px; 
+  margin-bottom: 2px; 
+}
+
+.card-cadastro .campo input { 
+  padding: 6px; 
+  font-size: 14px; 
+}
+
+.card-cadastro .botao {
+  width: 140px; 
+  height: 35px; 
+  font-size: 16px; 
+  margin-top: 15px; 
+  margin-bottom: 5px;
+  box-shadow: 4px 4px 0px #000; 
+  transition: 0.1s;
+}
+
+.card-cadastro .botao:active { 
+  transform: translate(4px, 4px); 
+  box-shadow: 0px 0px 0px #000; 
+}
+
+/* Regras comuns de formulário (Inputs, Campos e Botões) */
+.formulario {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2px 0;
+}
+
+.campo span {
+  font-weight: 800;
+  color: var(--cor-texto-claro);
+  text-transform: uppercase;
+  display: block; 
+}
+
+.campo input {
+  background-color: var(--cor-fundo-1);
+  border: 2px solid var(--cor-amarelo);
+  color: var(--cor-texto-claro);
+  text-align: center;
+  border-radius: 0;
+  margin: 0;
+  font-family: monospace;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.campo input:focus { 
+  border-color: var(--cor-vermelho); 
+  outline: none; 
+}
+
+.botao {
+  cursor: pointer;
+  font-family: "Barlow", sans-serif;
+  border: 2px solid #000;
+  border-radius: 0;
+  font-weight: 800;
+  color: var(--cor-texto-claro);
+  background-color: var(--cor-vermelho);
+  align-self: center;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   SISTEMA DE ALERTAS / ERROS
+========================================= */
+.alerta_erro {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card_erro {
+  display: none;
+  background-color: #fff;
+  color: black;
+  width: 230px;
+  position: fixed;
+  border-radius: 4px;
+  border: var(--cor-vermelho) 3px solid;
+  padding: 10px;
+  margin-right: 10%;
+  z-index: 999;
+}
+
+.card_erro #mensagem_erro {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.loading-div {
+  width: 50px;
+  margin: auto;
+  display: none;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}
+
+#div_erros_login {
+  display: none;
+}
