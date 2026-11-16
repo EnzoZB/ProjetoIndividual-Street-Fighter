@@ -10,3 +10,38 @@ email VARCHAR(150) NOT NULL,
 senha VARCHAR(100) NOT NULL
 );
 
+CREATE TABLE personagem (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE luta (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    resultado VARCHAR(45) NOT NULL,
+    nomeRival VARCHAR(50) NOT NULL,
+    data_partida DATE NOT NULL,
+    fkUsuario INT NOT NULL,
+    fkPersonagem1 INT NOT NULL,
+    fkPersonagem2 INT NOT NULL,
+    FOREIGN KEY (fkUsuario) REFERENCES usuario(id),
+    FOREIGN KEY (fkPersonagem1) REFERENCES personagem(id),
+    FOREIGN KEY (fkPersonagem2) REFERENCES personagem(id)
+);
+
+
+INSERT INTO personagem (nome) VALUES 
+('Ryu'),       -- ID 1
+('Ken'),       -- ID 2
+('Chun-Li'),   -- ID 3
+('Guile'),     -- ID 4
+('Blanka'),    -- ID 5
+('E. Honda'),  -- ID 6
+('Zangief'),   -- ID 7
+('Dhalsim'),   -- ID 8
+('Balrog'),    -- ID 9
+('Vega'),      -- ID 10
+('Sagat'),     -- ID 11
+('M. Bison');  -- ID 12
+
+SELECT * FROM luta;
+SELECT * FROM usuario;

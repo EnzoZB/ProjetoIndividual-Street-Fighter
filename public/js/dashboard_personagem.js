@@ -1,11 +1,11 @@
 function carregarKpiPersonagemPreferido() {
 
     var idUsuarioLogado = sessionStorage.ID_USUARIO || 1;
-    
+
     fetch(`/partidas/kpi-personagem-preferido/${idUsuarioLogado}`)
         .then(function (respostaBackEnd) {
             if (respostaBackEnd.ok) {
-                
+
                 respostaBackEnd.json().then(function (dadosKpi) {
 
                     var nomePreferido = dadosKpi.nomePersonagemPreferido;
@@ -14,9 +14,9 @@ function carregarKpiPersonagemPreferido() {
                     var totalDerrotas = dadosKpi.qtdDerrotas;
 
 
-                    document.getElementById('kpi-preferido-nome').innerText = nomePreferido; 
-                    document.getElementById('kpi-preferido-partidas').innerText = totalPartidas; 
-                    
+                    document.getElementById('kpi-preferido-nome').innerText = nomePreferido;
+                    document.getElementById('kpi-preferido-partidas').innerText = totalPartidas;
+
 
                     var textoVitoriasDerrotas = `${totalVitorias}/${totalDerrotas}`;
                     document.getElementById('kpi-preferido-vd').innerText = textoVitoriasDerrotas;
@@ -31,7 +31,42 @@ function carregarKpiPersonagemPreferido() {
         });
 }
 
+function carregarKpiWinRate() {
 
-window.onload = function() {
+    var idUsuarioLogado = sessionStorage.ID_USUARIO || 1;
+
+    fetch(`/partidas/kpi-winrate/${idUsuarioLogado}`)
+        .then(function (respostaBackEnd) {
+            if (respostaBackEnd.ok) {
+
+                respostaBackEnd.json().then(function (dadosKpi) {
+
+                    var totalPartidas = dadosKpi.qtdPartidasTotal;
+                    var totalVitorias = dadosKpi.qtdVitorias;
+                    var totalDerrotas = dadosKpi.qtdDerrotas;
+
+                    var calculo = (totalVitorias / totalPartidas) * 100;
+
+                    var porcentagemWinRate = 0;
+                    if (totalPartidas > 0) {
+                        porcentagemWinRate = calculo.toFixed(0);
+                    }
+
+                    document.getElementById('kpi-winrate-valor').innerText = porcentagemWinRate + '%';
+                    document.getElementById('kpi-winrate-vitorias').innerText = totalVitorias;
+                    document.getElementById('kpi-winrate-derrotas').innerText = totalDerrotas;
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        .catch(function (erroDeRede) {
+            console.error(`Erro na requisição do Win Rate: ${erroDeRede.message}`);
+        });
+}
+
+window.onload = function () {
     carregarKpiPersonagemPreferido();
+    carregarKpiWinRate();
 };

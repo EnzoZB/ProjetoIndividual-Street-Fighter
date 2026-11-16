@@ -5,7 +5,7 @@ function buscarKpiPersonagemPreferido(req, res) {
     var idUsuarioLogado = req.params.idUsuario;
 
     partidaModel.buscarKpiPersonagemPreferido(idUsuarioLogado)
-        .then(function(resultadoBancoDados) { 
+        .then(function (resultadoBancoDados) {
 
             // Validamos se veio algo do banco.
             if (resultadoBancoDados.length > 0) {
@@ -13,13 +13,33 @@ function buscarKpiPersonagemPreferido(req, res) {
             } else {
                 res.status(204).send("Nenhuma partida encontrada para este usuário.");
             }
-        }).catch(function(erroBancoDados) { 
+        }).catch(function (erroBancoDados) {
             console.log(erroBancoDados);
-            res.status(500).json(erroBancoDados.sqlMessage); 
+            res.status(500).json(erroBancoDados.sqlMessage);
+        });
+}
+
+function buscarKpiWinRate(req, res) {
+
+    var idUsuarioLogado = req.params.idUsuario;
+
+    partidaModel.buscarKpiWinRate(idUsuarioLogado)
+        .then(function (resultadoBancoDados) {
+
+            if (resultadoBancoDados.length > 0) {
+                res.status(200).json(resultadoBancoDados[0]);
+            } else {
+                res.status(204).send("Nenhuma partida encontrada para este usuário.");
+            }
+        }).catch(function (erroBancoDados) {
+            console.log(erroBancoDados);
+            res.status(500).json(erroBancoDados.sqlMessage);
         });
 }
 
 
-module.exports = { 
-    buscarKpiPersonagemPreferido
+
+module.exports = {
+    buscarKpiPersonagemPreferido,
+    buscarKpiWinRate
 }

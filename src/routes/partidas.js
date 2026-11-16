@@ -9,4 +9,8 @@ router.get("/kpi-personagem-preferido/:idUsuario", function (req, res) {
     partidaController.buscarKpiPersonagemPreferido(req, res); 
 });
 
+router.get("/kpi-winrate/:idUsuario", function (req, res) {
+    partidaController.buscarKpiWinRate(req,res);
+});
+
 module.exports = router;
