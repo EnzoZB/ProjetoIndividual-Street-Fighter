@@ -13,4 +13,8 @@ router.get("/kpi-winrate/:idUsuario", function (req, res) {
     partidaController.buscarKpiWinRate(req,res);
 });
 
+router.get("/kpi-nemesis/:idUsuario", function (req, res) {
+    partidaController.buscarKpiNemesis(req, res);
+});
+
 module.exports = router;

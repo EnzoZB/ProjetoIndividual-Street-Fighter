@@ -21,11 +21,11 @@ CREATE TABLE luta (
     nomeRival VARCHAR(50) NOT NULL,
     data_partida DATE NOT NULL,
     fkUsuario INT NOT NULL,
-    fkPersonagem1 INT NOT NULL,
-    fkPersonagem2 INT NOT NULL,
+    fkPersonagem_seu INT NOT NULL,
+    fkPersonagem_rival INT NOT NULL,
     FOREIGN KEY (fkUsuario) REFERENCES usuario(id),
-    FOREIGN KEY (fkPersonagem1) REFERENCES personagem(id),
-    FOREIGN KEY (fkPersonagem2) REFERENCES personagem(id)
+    FOREIGN KEY (fkPersonagem_seu) REFERENCES personagem(id),
+    FOREIGN KEY (fkPersonagem_rival) REFERENCES personagem(id)
 );
 
 

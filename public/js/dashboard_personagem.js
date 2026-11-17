@@ -66,7 +66,36 @@ function carregarKpiWinRate() {
         });
 }
 
+function carregarKpiNemesis() {
+    var idUsuarioLogado = sessionStorage.ID_USUARIO || 1;
+
+    fetch(`/partidas/kpi-nemesis/${idUsuarioLogado}`)
+        .then(function (respostaBackEnd) {
+            if (respostaBackEnd.ok) {
+            
+                respostaBackEnd.json().then(function (dadosKpi) {
+    
+                    var nomeNemesis = dadosKpi.nemesis;
+                    var totalDerrotas = dadosKpi.total_derrotas;
+
+                    document.getElementById('kpi-nemesis-nome').innerText = nomeNemesis;
+                    document.getElementById('kpi-nemesis-derrotas').innerText = totalDerrotas;
+                });
+            } else if (respostaBackEnd.status == 204) {
+
+                document.getElementById('kpi-nemesis-nome').innerText = "NENHUM";
+                document.getElementById('kpi-nemesis-derrotas').innerText = "0";
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        .catch(function (erroDeRede) {
+            console.error(`Erro na requisição do Nêmesis: ${erroDeRede.message}`);
+        });
+}
+
 window.onload = function () {
     carregarKpiPersonagemPreferido();
     carregarKpiWinRate();
+    carregarKpiNemesis();
 };
