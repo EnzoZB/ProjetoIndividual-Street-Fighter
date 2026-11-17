@@ -17,4 +17,8 @@ router.get("/kpi-nemesis/:idUsuario", function (req, res) {
     partidaController.buscarKpiNemesis(req, res);
 });
 
+router.get("/grafico-rosca-pers/:idUsuario", function (req, res) {
+    partidaController.buscarTop5Rosca(req, res);
+});
+
 module.exports = router;

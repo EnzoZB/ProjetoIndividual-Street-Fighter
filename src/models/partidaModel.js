@@ -61,9 +61,26 @@ function buscarKpiNemesis(idUsuarioLogado) {
     return database.executar(instrucaoSql);
 }
 
+function buscarTop5Rosca(idUsuarioLogado) {
+    var instrucaoSql = `
+    SELECT p.nome AS 'nome_personagem', COUNT(l.id) AS 'qtd_lutas'
+    FROM personagem p 
+         JOIN luta l 
+              ON l.fkPersonagem_seu = p.id
+    WHERE l.fkUsuario = ${idUsuarioLogado}
+    GROUP BY p.nome
+    ORDER BY qtd_lutas DESC
+    LIMIT 5;`
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     buscarKpiPersonagemPreferido,
     buscarKpiWinRate,
-    buscarKpiNemesis
+    buscarKpiNemesis,
+    buscarTop5Rosca
 };
 

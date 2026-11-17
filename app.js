@@ -21,6 +21,7 @@ var nova_lutaRouter = require("./src/routes/nova-luta");
 
 // KPIs
 var partidasRouter = require("./src/routes/partidas");
+var rivaisRouter = require("./src/routes/rivais");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -33,6 +34,7 @@ app.use("/usuarios", usuarioRouter);
 app.use("/nova-luta", nova_lutaRouter);
 // KPIs
 app.use("/partidas", partidasRouter);
+app.use("/rivais", rivaisRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
