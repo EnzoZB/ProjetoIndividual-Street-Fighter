@@ -135,7 +135,11 @@ function desenharGraficoRosca(labelsPersonagens, dadosQuantidade) {
     var elementoCanvas = document.getElementById('graficoElenco');
     var ctx = elementoCanvas.getContext('2d');
 
-    graficoRosca = new Chart(ctx, {
+    if (graficoRoscaAtual) {
+        graficoRoscaAtual.destroy();
+    }
+
+    graficoRoscaAtual = new Chart(ctx, {
         type: 'doughnut', 
         data: {
             labels: labelsPersonagens,

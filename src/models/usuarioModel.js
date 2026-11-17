@@ -22,7 +22,19 @@ function cadastrar(nome, nickname, cpf, email, senha) {
     return database.executar(instrucao);
 }
 
+function listarRivais(idUsuarioLogado) {
+    var instrucaoSql = `
+        SELECT id, nickname 
+        FROM usuario 
+        WHERE id != ${idUsuarioLogado} 
+        ORDER BY nickname ASC;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    listarRivais
 };

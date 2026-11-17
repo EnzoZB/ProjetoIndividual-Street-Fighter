@@ -83,7 +83,24 @@ function cadastrar(req, res) {
     }
 }
 
+function listarRivais(req, res) {
+    var idUsuarioLogado = req.params.idUsuario;
+
+    usuarioModel.listarRivais(idUsuarioLogado)
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado); 
+            } else {
+                res.status(204).send("Nenhum rival encontrado!");
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    listarRivais
 }

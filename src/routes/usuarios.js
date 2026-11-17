@@ -12,4 +12,8 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
+router.get("/listar-rivais/:idUsuario", function (req, res) {
+    usuarioController.listarRivais(req, res);
+});
+
 module.exports = router;

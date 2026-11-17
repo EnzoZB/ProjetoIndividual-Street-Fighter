@@ -16,9 +16,7 @@
         <div class="sidebar">
 
             <div class="logo-container">
-
                 <img src="../assets/imgs/logo-street-tracker-removebg-preview.png" alt="Logo do Site" class="logo-sidebar">
-            
             </div>
 
             <a href="nova-luta.html" class="btn-nova-luta">+ NOVA LUTA</a>
@@ -34,7 +32,6 @@
 
         </div>
 
-
         <div class="main-content">
 
             <div class="dashboard-header">
@@ -47,7 +44,6 @@
                 </div>
             </div>
 
-
             <div class="container-nova-luta">
                 <div class="card-cadastro">
                     <h2>Nova Luta</h2>
@@ -58,15 +54,15 @@
                             <span>Resultado do Combate:</span>
                             <select id="select_resultado">
                                 <option value="" disabled selected>-- Selecione --</option>
-                                <option value="Vitoria">VITÓRIA (YOU WIN)</option>
+                                <option value="Vitória">VITÓRIA (YOU WIN)</option>
                                 <option value="Derrota">DERROTA (YOU LOSE)</option>
                             </select>
                         </div>
 
-                        <div class="campo">
-                            <span>Jogador Adversário (Rival):</span>
-                            <input id="input_adversario" type="text" placeholder="Ex: Pedro, Bruno...">
-                        </div>
+                        <label>JOGADOR ADVERSÁRIO (RIVAL):</label>
+                        <select id="sel_rival">
+                            <option value="" disabled selected>-- Carregando rivais... --</option>
+                        </select>
 
                         <div class="campo">
                             <span>Seu Personagem (Player 1):</span>
@@ -127,21 +123,44 @@
 </body>
 
 <script>
-    function registrarLuta() {
+    function carregarRivais() {
+        var idUsuarioLogado = sessionStorage.ID_USUARIO || 1;
+        var selectRival = document.getElementById("sel_rival");
 
-        var idUsuario = sessionStorage.ID_USUARIO;
+        fetch(`/usuarios/listar-rivais/${idUsuarioLogado}`)
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(function (listaRivais) {
+                        selectRival.innerHTML = `<option value="" disabled selected>-- Escolha o Rival --</option>`;
+
+                        for (var i = 0; i < listaRivais.length; i++) {
+                            var rivalAtual = listaRivais[i];
+                            var opcao = document.createElement("option");
+                            opcao.value = rivalAtual.id;
+                            opcao.innerHTML = rivalAtual.nickname;
+                            selectRival.appendChild(opcao);
+                        }
+                    });
+                }
+            })
+            .catch(function (erro) {
+                console.error(`Erro na requisição: ${erro.message}`);
+            });
+    }
+
+    function registrarLuta() {
+        var idUsuario = sessionStorage.ID_USUARIO || 1;
 
         var resultado = document.getElementById("select_resultado").value;
-        var rival = document.getElementById("input_adversario").value;
+        var rival = document.getElementById("sel_rival").value;
         var personagem1 = document.getElementById("select_meu_personagem").value;
         var personagem2 = document.getElementById("select_personagem_adversario").value;
         var dataPartida = document.getElementById("input_data_luta").value;
 
         if (resultado == "" || rival == "" || personagem1 == "" || personagem2 == "" || dataPartida == "") {
             alert("Por favor, preencha todos os campos da luta!");
-            return false; 
+            return false;
         }
-
 
         fetch("/nova-luta/cadastrar", {
             method: "POST",
@@ -158,20 +177,23 @@
             })
         }).then(function (resposta) {
             if (resposta.ok) {
-                alert("Combate registado com sucesso!");
-
+                alert("Combate registrado com sucesso!");
                 document.getElementById("select_resultado").value = "";
-                document.getElementById("input_adversario").value = "";
+                document.getElementById("sel_rival").value = "";
                 document.getElementById("select_meu_personagem").value = "";
                 document.getElementById("select_personagem_adversario").value = "";
                 document.getElementById("input_data_luta").value = "";
             } else {
-                console.log("Houve um erro ao tentar registar a luta!");
+                console.log("Houve um erro ao tentar registrar a luta!");
             }
         }).catch(function (erro) {
             console.log("Erro: ", erro);
         });
     }
+
+    window.onload = function() {
+        carregarRivais();
+    };
 </script>
 
 </html>
