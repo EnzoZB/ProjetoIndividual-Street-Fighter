@@ -11,4 +11,8 @@ router.get("/kpi-pior-algoz/:idUsuario", function (req, res) {
     rivalController.buscarKpiPiorAlgoz(req, res);
 });
 
+router.get("/grafico-rivais-rosca/:idUsuario", function (req, res) {
+    rivalController.buscarTop5Rivais(req, res);
+});
+
 module.exports = router;

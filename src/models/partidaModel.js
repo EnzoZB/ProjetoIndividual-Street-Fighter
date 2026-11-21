@@ -63,7 +63,7 @@ function buscarKpiNemesis(idUsuarioLogado) {
 
 function buscarTop5Rosca(idUsuarioLogado) {
     var instrucaoSql = `
-    SELECT p.nome AS 'nome_personagem', COUNT(l.id) AS 'qtd_lutas'
+    SELECT p.nome AS 'nome_personagem', COUNT(l.id) AS 'totalPartidasRival'
     FROM personagem p 
          JOIN luta l 
               ON l.fkPersonagem_seu = p.id
@@ -97,6 +97,7 @@ module.exports = {
     buscarKpiPersonagemPreferido,
     buscarKpiWinRate,
     buscarKpiNemesis,
-    buscarTop5Rosca
+    buscarTop5Rosca,
+    buscarVitoriasPorMes
 };
 

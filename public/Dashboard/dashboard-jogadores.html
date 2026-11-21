@@ -18,8 +18,9 @@
 
             <div class="logo-container">
 
-                <img src="../assets/imgs/logo-street-tracker-removebg-preview.png" alt="Logo do Site" class="logo-sidebar">
-            
+                <img src="../assets/imgs/logo-street-tracker-removebg-preview.png" alt="Logo do Site"
+                    class="logo-sidebar">
+
             </div>
 
             <a href="nova-luta.html" class="btn-nova-luta">+ NOVA LUTA</a>
@@ -39,21 +40,24 @@
 
             <div class="dashboard-header">
                 <h1>PAINEL DE RIVALIDADE :: JOGADORES</h1>
-                
+
                 <div class="filtros-tempo">
                     <span>Período:</span>
-                    <button type="button" id="btn-filtro-mes" class="btn-filtro" onclick="filtrarPeriodo('mes')">Último Mês</button>
-                    <button type="button" id="btn-filtro-todo" class="btn-filtro ativo" onclick="filtrarPeriodo('todo')">Todo o Tempo</button>
+                    <button type="button" id="btn-filtro-mes" class="btn-filtro" onclick="filtrarPeriodo('mes')">Último
+                        Mês</button>
+                    <button type="button" id="btn-filtro-todo" class="btn-filtro ativo"
+                        onclick="filtrarPeriodo('todo')">Todo o Tempo</button>
                 </div>
             </div>
 
             <div class="kpis-container">
-                
-                <div class="card-kpi" title="Adversário contra quem você possui o maior número de vitórias no período selecionado">
+
+                <div class="card-kpi"
+                    title="Adversário contra quem você possui o maior número de vitórias no período selecionado">
                     <h3>MAIOR FREGUÊS <span id="periodo-kpi-fregues">(Todo o Tempo)</span></h3>
                     <h2 id="kpi-fregues-nome">...</h2>
                     <p>
-                        Vitórias: <strong id="kpi-fregues-vitorias">34</strong> | 
+                        Vitórias: <strong id="kpi-fregues-vitorias">34</strong> |
                         Win Rate: <strong id="kpi-fregues-aproveitamento">78%</strong>
                     </p>
                 </div>
@@ -62,7 +66,7 @@
                     <h3>WIN RATE GERAL <span id="periodo-kpi-desempenho">(Todo o Tempo)</span></h3>
                     <h2 id="kpi-desempenho-valor">62%</h2>
                     <p>
-                        Vitórias: <strong id="kpi-desempenho-vitorias">184</strong> | 
+                        Vitórias: <strong id="kpi-desempenho-vitorias">184</strong> |
                         Derrotas: <strong id="kpi-desempenho-derrotas">112</strong>
                     </p>
                 </div>
@@ -71,7 +75,7 @@
                     <h3>PIOR ALGOZ <span id="periodo-kpi-algoz">(Todo o Tempo)</span></h3>
                     <h2 id="kpi-pior-algoz">...</h2>
                     <p>
-                        Derrotas: <strong id="kpi-algoz-derrotas">18</strong> | 
+                        Derrotas: <strong id="kpi-algoz-derrotas">18</strong> |
                         Win Rate: <strong id="kpi-algoz-aproveitamento">35%</strong>
                     </p>
                 </div>
@@ -87,7 +91,9 @@
 
                 <div class="card-chart chart-rosca">
                     <h3>VOLUME DE LUTAS POR RIVAL <span id="periodo-chart-frequencia">(Todo o Tempo)</span></h3>
-                    <canvas id="graficoFrequenciaPartidas"></canvas>
+                    <div style="position: relative; width: 100%; flex: 1; min-height: 0;">
+                        <canvas id="graficoFrequenciaPartidas"></canvas>
+                    </div>
                 </div>
 
             </div>

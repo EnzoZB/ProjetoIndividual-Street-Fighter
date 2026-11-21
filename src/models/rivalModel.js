@@ -38,7 +38,24 @@ function buscarKpiPiorAlgoz(idUsuarioLogado) {
     return database.executar(instrucaoSql);
 }
 
+function buscarTop5Rivais(idUsuarioLogado) {
+    var instrucaoSql = `
+    SELECT u.nickname AS 'nomeRivais', COUNT(l.id) AS 'totalPartidasRival'
+    FROM usuario u
+         JOIN luta l 
+              ON l.fkRival = u.id
+    WHERE l.fkUsuario = ${idUsuarioLogado}
+    GROUP BY u.nickname
+    ORDER BY totalPartidasRival DESC
+    LIMIT 5;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     buscarKpiMaiorFregues,
-    buscarKpiPiorAlgoz
+    buscarKpiPiorAlgoz,
+    buscarTop5Rivais
 };

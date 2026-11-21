@@ -65,7 +65,92 @@ function carregarKpiPiorAlgoz() {
         });
 }
 
+function buscarDadosGraficoRosca() {
+    var idUsuarioLogado = sessionStorage.ID_USUARIO || 1;
+
+    fetch(`/rivais/grafico-rivais-rosca/${idUsuarioLogado}`)
+        .then(function (respostaBackEnd) {
+            if (respostaBackEnd.ok) {
+
+                respostaBackEnd.json().then(function (dadosGrafico) {
+                    
+                    var labelsRivais = [];
+                    var dadosQuantidade = [];
+
+                    for (var i = 0; i < dadosGrafico.length; i++) {
+                        var registro = dadosGrafico[i];
+                        
+                        labelsRivais.push(registro.nomeRivais);
+                        dadosQuantidade.push(registro.totalPartidasRival);
+                    }
+
+                    desenharGraficoRoscaRival(labelsRivais, dadosQuantidade);
+
+                });
+            } else if (respostaBackEnd.status == 204) {
+                console.log("Nenhuma partida encontrada para montar o gráfico de rosca.");
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        .catch(function (erroDeRede) {
+            console.error(`Erro na requisição do Gráfico de Rosca: ${erroDeRede.message}`);
+        });
+}
+
+var graficoRoscaAtual = null;
+
+function desenharGraficoRoscaRival(labelsRivais, dadosQuantidade) {
+
+    var elementoCanvas = document.getElementById('graficoFrequenciaPartidas');
+    var ctx = elementoCanvas.getContext('2d');
+
+    if (graficoRoscaAtual) {
+        graficoRoscaAtual.destroy();
+    }
+
+    graficoRoscaAtual = new Chart(ctx, {
+        type: 'doughnut', 
+        data: {
+            labels: labelsRivais,
+            datasets: [{
+                label: 'Top 5 Rivais',
+                data: dadosQuantidade,
+                
+                backgroundColor: [
+                    '#E63946',
+                    '#457B9D', 
+                    '#F4A261', 
+                    '#2A9D8F',
+                    '#8338EC'  
+                ],
+
+                borderColor: '#121212', 
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false, 
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#ffffff', 
+                        padding: 20,
+                        font: {
+                            family: "'Arial', sans-serif",
+                            size: 12
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
 window.onload = function () {
     carregarKpiMaiorFregues();
     carregarKpiPiorAlgoz();
+    buscarDadosGraficoRosca();
 };
