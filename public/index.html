@@ -19,13 +19,13 @@
                     <a href="index.html">Inicial</a>
                 </li>
                 <li>
-                    <a href="#sobre">Projeto</a>
+                    <a href="#universo">O Jogo</a>
                 </li>
                 <li>
-                    <a href="#sistema">Sistema</a>
+                    <a href="#lutadores">Lutadores</a>
                 </li>
                 <li>
-                    <a href="#jornada">Jornada</a>
+                    <a href="#historia">História</a>
                 </li>
                 <li class="separador"></li>
                 <li>
@@ -46,18 +46,18 @@
                     <img src="assets/imgs/ryu.png" alt="Ryu">
                 </div>
                 <div class="banner_texto">
-                    <h2>A RIVALIDADE<br>1 contra 1</h2>
+                    <h2>MUITO ALÉM<br>DAS FICHAS</h2>
                 </div>
             </div>
 
             <div class="elementos_centrais">
                 <img src="assets/imgs/vs.png" alt="VS" class="logo_vs">
-                <button class="btn-registrar" onclick="window.location.href='cadastro.html'">REGISTRAR</button>
+                <button class="btn-registrar" onclick="window.location.href='#universo'">CONHECER A HISTÓRIA</button>
             </div>
 
             <div class="area_player2">
                 <div class="banner_texto">
-                    <h2>AGORA TEM UM<br>PLACAR DEFINITIVO.</h2>
+                    <h2>UM ELO ENTRE<br>GERAÇÕES</h2>
                 </div>
                 <div class="personagem_aura_red">
                     <img src="assets/imgs/ken.png" alt="Ken">
@@ -66,96 +66,227 @@
         </div>
     </div>
 
-    <div id="sobre" class="sobre_projeto">
-        <div class="container">
-            <div class="sobre_conteudo">
-                <div class="sobre_imagem">
-                    <img src="assets/imgs/arcade.png" alt="Máquina de Fliperama Arcade">
-                </div>
-                <div class="sobre_titulos">
-                    <span class="tag">SOBRE O PROJETO</span>
-                    <h2>Reviva a era de ouro dos contras 1 vs 1</h2>
-                </div>
-                <div class="sobre_texto">
-                    <p>O StreetTracker revive a era de ouro das disputas locais, trazendo a emoção do fliperama para o conforto da sua casa com um placar definitivo para as suas partidas de Street Fighter II e uma Dashboard com dados acumulados.</p>
-                    <a href="#sistema" class="link-amarelo">Veja o que o sistema faz ➔</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="sistema" class="sistema_section">
+    <div id="universo" class="secao_universo">
         <div class="container flex-coluna">
-            <span class="tag-titulo">O QUE O SISTEMA FAZ POR VOCÊ</span>
-            <h2 class="titulo-sistema">Toda a experiência de um torneio no seu navegador</h2>
-            
-            <div class="sistema_cards">
-                <div class="card_sistema">
-                    <img src="assets/imgs/icon-grafico.png" alt="Estatísticas de Combate">
-                    <div class="card_sistema_texto">
-                        <h3>Estatísticas de Combate</h3>
-                        <p>Análise de desempenho e taxa de vitórias.</p>
-                    </div>
+            <span class="badge_secao">COMO FUNCIONA</span>
+            <h2 class="titulo_secao">O Universo de Street Fighter II</h2>
+
+            <div class="cards_universo">
+                <div class="card_clean">
+                    <span class="card_numero">01</span>
+                    <h3>Duelo 1v1 Local</h3>
+                    <p>Dois jogadores lado a lado em cenários ao redor do mundo. Quem zerar a barra de vida do adversário vence o round — leva a luta quem fechar melhor de três.</p>
                 </div>
-                
-                <div class="card_sistema">
-                    <img src="assets/imgs/icon-vs-mini.png" alt="Registro de Confrontos">
-                    <div class="card_sistema_texto">
-                        <h3>Registro de Confrontos</h3>
-                        <p>Cadastro rápido de lutas e rounds.</p>
-                    </div>
+
+                <div class="card_clean">
+                    <span class="card_numero">02</span>
+                    <h3>Golpes Especiais</h3>
+                    <p>Combinando direções e botões no tempo certo, você solta poderes icônicos como o Hadouken e o Shoryuken. Fácil de começar, infinito para dominar.</p>
                 </div>
-                
-                <div class="card_sistema">
-                    <img src="assets/imgs/icon-engrenagem.png" alt="Cálculos e Processamento">
-                    <div class="card_sistema_texto">
-                        <h3>Cálculos e Processamento</h3>
-                        <p>Processamento de dados em tempo real.</p>
-                    </div>
+
+                <div class="card_clean">
+                    <span class="card_numero">03</span>
+                    <h3>Champion Edition</h3>
+                    <p>Lançada em 1992, essa versão fez história ao liberar os quatro chefões como personagens jogáveis e permitir confrontos espelhados entre o mesmo lutador.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="jornada" class="jornada_socio">
+    <div id="lutadores" class="secao_lutadores">
         <div class="container flex-coluna">
-            <div class="header-jornada">
-                <h2 class="titulo-jornada">JORNADA SOCIOEMOCIONAL - PLAYER 1</h2>
-                <div class="health-bar-container">
-                    <div class="health-bar-fill"></div>
+            <span class="tag_secao">ESCOLHA SEU LUTADOR</span>
+            <h2 class="titulo_secao">Conheça os 12 Lutadores</h2>
+
+            <div class="lutadores_conteudo">
+                <div id="grade_lutadores" class="grade_lutadores"></div>
+
+                <div class="card_perfil_lutador">
+                    <div class="perfil_topo">
+                        <img id="perfil_img" src="assets/imgs/lutadores/ryu.png" alt="Lutador selecionado">
+                        <div class="perfil_titulos">
+                            <h3 id="perfil_nome">RYU — JAPÃO</h3>
+                            <div class="perfil_tags">
+                                <span id="perfil_estilo" class="tag_pilula">Equilibrado</span>
+                                <span id="perfil_golpe" class="tag_pilula tag_golpe">Hadouken</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p id="perfil_descricao" class="perfil_descricao">O ponto de partida perfeito para qualquer jogador. Combina defesa sólida, golpes diretos e o ataque mais famoso dos jogos de luta.</p>
                 </div>
             </div>
-
-            <div class="jornada_cards">
-                <div class="card_round">
-                    <h3 class="round-title">ROUND 1: O DESPERTAR<br><span>(Linha da Vida & Valores)</span></h3>
-                    <div class="card-content">
-                        <p>O interesse por jogos começou com os arcades clássicos. O projeto nasce da vontade de resgatar o <span class="destaque">couch multiplayer</span> (1x1 local).</p>
-                        <p>Valores principais escolhidos: <span class="destaque">Nostalgia, conexão real e rivalidade saudável</span>, características marcantes do Street Fighter II.</p>
-                    </div>
-                </div>
-                
-                <div class="card_round">
-                    <h3 class="round-title round-red">ROUND 2: O BOSS FINAL<br><span>(Desafios & Superação)</span></h3>
-                    <div class="card-content">
-                        <p>A maior dificuldade foi estruturar toda a lógica do placar e unir o layout temático de fliperama com o processamento das partidas em tempo real.</p>
-                        <p>A vitória veio ao superar os bugs técnicos e ver o placar registrar corretamente as vitórias, validando todo o esforço.</p>
-                    </div>
-
-                </div>
-                
-                <div class="card_round">
-                    <h3 class="round-title">ROUND 3: HALL DA FAMA<br><span>(Gratidão)</span></h3>
-                    <div class="card-content">
-                        <p>Gratidão especial ao meu pai, <span class="destaque">Denis Bertoluci</span>, por ser minha maior inspiração para entrar no mundo da tecnologia.</p>
-                        <p>Agradeço também aos professores e amigos pelo apoio constante para destravar o código durante a jornada.</p>
-                    </div>
-                </div>
-            </div>
-
-            <p class="press-start blink">PRESS START</p>
         </div>
     </div>
 
+    <div id="historia" class="secao_historia">
+        <div class="container flex-coluna">
+            <span class="tag_secao">MINHA HISTÓRIA</span>
+            <h2 class="titulo_secao">De Geração em Geração</h2>
+
+            <div class="timeline_lista">
+                <div class="timeline_linha"></div>
+
+                <div class="timeline_passo">
+                    <div class="timeline_numero">01</div>
+                    <h3>A Era das Fichas</h3>
+                    <p>Antes mesmo de eu nascer, meu pai vivia o auge dos fliperamas, dando um jeito de conseguir fichas para encarar partidas marcantes contra o primo dele, meu tio.</p>
+                </div>
+
+                <div class="timeline_passo">
+                    <div class="timeline_numero">02</div>
+                    <h3>A Curiosidade</h3>
+                    <p>Cresci vendo meu pai jogar em casa. Curioso como toda criança, logo quis aprender — e ele me ensinou os primeiros macetes, principalmente com seus favoritos, Ryu e Ken.</p>
+                </div>
+
+                <div class="timeline_passo">
+                    <div class="timeline_numero">03</div>
+                    <h3>O Novo Player 2</h3>
+                    <p>Com o tempo, assumi o lugar que um dia foi do meu tio: o parceiro oficial de 1v1. O jogo foi uma ponte real que transformou nossa relação de pai e filho em uma grande amizade.</p>
+                </div>
+            </div>
+
+            <div class="valores_linha">
+                <div class="card_valor">
+                    <h4>Conexão e Família</h4>
+                    <p>Um controle na mão pode criar memórias que atravessam gerações.</p>
+                </div>
+                <div class="card_valor">
+                    <h4>Rivalidade Saudável</h4>
+                    <p>Competir para valer, rir das derrotas e comemorar a evolução do outro.</p>
+                </div>
+                <div class="card_valor">
+                    <h4>Persistência</h4>
+                    <p>Assim como na programação, acertar o combo exige testar, errar e tentar de novo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="comecar" class="secao_cta">
+        <div class="container flex-coluna">
+            <h2 class="titulo_cta">QUEM É O SEU PLAYER 2?</h2>
+            <p class="subtitulo_cta">Crie sua conta, registre suas partidas locais de Street Fighter II e acompanhe sua evolução e rivalidades.</p>
+            <button class="btn-registrar" onclick="window.location.href='cadastro.html'">CADASTRAR AGORA</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>StreetTracker &bull; Projeto Individual SPTech</p>
+    </div>
+
+    <script>
+        var nomes = [
+            "RYU — JAPÃO",
+            "KEN — EUA",
+            "CHUN-LI — CHINA",
+            "E. HONDA — JAPÃO",
+            "BLANKA — BRASIL",
+            "GUILE — EUA",
+            "ZANGIEF — URSS",
+            "DHALSIM — ÍNDIA",
+            "BALROG — EUA",
+            "VEGA — ESPANHA",
+            "SAGAT — TAILÂNDIA",
+            "M. BISON — TAILÂNDIA"
+        ];
+
+        var estilos = [
+            "Equilibrado",
+            "Agressivo",
+            "Velocidade",
+            "Pressão",
+            "Imprevisível",
+            "Defensivo",
+            "Força Bruta",
+            "Longo Alcance",
+            "Boxeador",
+            "Ágil e Aéreo",
+            "Controle de Espaço",
+            "Poderoso"
+        ];
+
+        var golpes = [
+            "Hadouken",
+            "Shoryuken",
+            "Hyakuretsukyaku",
+            "Hundred Hand Slap",
+            "Electric Thunder",
+            "Sonic Boom",
+            "Spinning Piledriver",
+            "Yoga Fire",
+            "Dash Straight",
+            "Flying Barcelona",
+            "Tiger Shot",
+            "Psycho Crusher"
+        ];
+
+        var descricoes = [
+            "O ponto de partida perfeito para qualquer jogador. Combina defesa sólida, golpes diretos e o ataque mais famoso dos jogos de luta.",
+            "Mais rápido e ofensivo que Ryu, brilha no combate de curta distância com combos intensos e um Shoryuken devastador.",
+            "Agilidade pura e chutes velozes que mantêm o adversário sob pressão constante sem deixar espaço para respiro.",
+            "Lutador de sumô focado em força e resistência, capaz de encurralar o oponente com sequências rápidas de golpes.",
+            "Representante brasileiro com movimentos selvagens e ataques elétricos que punem quem tenta se aproximar sem cuidado.",
+            "Especialista em controlar o ritmo da luta à distância, combinando projéteis rápidos com uma defesa quase impenetrável.",
+            "Lento na movimentação, mas basta encurtar a distância uma única vez para virar o round com seus agarrões poderosos.",
+            "Mestre em manter o adversário longe usando membros elásticos e ataques de fogo para dominar a arena inteira.",
+            "Primeiro dos chefões jogáveis, aposta apenas em socos diretos de alto impacto que quebram a defesa rival rapidamente.",
+            "Extremamente veloz e acrobático, usa sua garra e saltos nas paredes da arena para surpreender o oponente de qualquer ângulo.",
+            "Impõe respeito com projéteis em duas alturas diferentes e joelhadas poderosas que punem qualquer salto mal calculado.",
+            "O chefe final da Champion Edition. Combina pressão constante, deslizes rápidos e ataques de energia difíceis de parar."
+        ];
+
+        var imagens = [
+            "assets/imgs/lutadores/ryu.png",
+            "assets/imgs/lutadores/ken.png",
+            "assets/imgs/lutadores/chunli.png",
+            "assets/imgs/lutadores/ehonda.png",
+            "assets/imgs/lutadores/blanka.png",
+            "assets/imgs/lutadores/guile.png",
+            "assets/imgs/lutadores/zangief.png",
+            "assets/imgs/lutadores/dhalsim.png",
+            "assets/imgs/lutadores/balrog.png",
+            "assets/imgs/lutadores/vega.png",
+            "assets/imgs/lutadores/sagat.png",
+            "assets/imgs/lutadores/mbison.png"
+        ];
+
+        function montarGrade() {
+            var grade = document.getElementById("grade_lutadores");
+            var html = "";
+
+            for (var i = 0; i < nomes.length; i++) {
+                var classeAtiva = "";
+                if (i == 0) {
+                    classeAtiva = " ativo";
+                }
+                html += `<div id="lutador_${i}" class="lutador_item${classeAtiva}" onclick="selecionarLutador(${i})">
+                            <img src="${imagens[i]}" alt="${nomes[i]}">
+                         </div>`;
+            }
+
+            grade.innerHTML = html;
+        }
+
+        function selecionarLutador(indice) {
+            document.getElementById("perfil_img").src = imagens[indice];
+            document.getElementById("perfil_img").alt = nomes[indice];
+            document.getElementById("perfil_nome").innerHTML = nomes[indice];
+            document.getElementById("perfil_estilo").innerHTML = estilos[indice];
+            document.getElementById("perfil_golpe").innerHTML = golpes[indice];
+            document.getElementById("perfil_descricao").innerHTML = descricoes[indice];
+
+            for (var i = 0; i < nomes.length; i++) {
+                var item = document.getElementById("lutador_" + i);
+                if (i == indice) {
+                    item.classList.add("ativo");
+                } else {
+                    item.classList.remove("ativo");
+                }
+            }
+        }
+
+        montarGrade();
+    </script>
 </body>
+
 </html>

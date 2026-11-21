@@ -1,17 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* =========================================
-   PALETA DE CORES OFICIAL (VARIÁVEIS)
-========================================= */
 :root {
   --cor-fundo-1: #000000;
   --cor-fundo-2: #111116;
   --cor-fundo-cards: #15151b;
-  
+  --cor-borda-sutil: #26262f;
+
   --cor-vermelho: #d12027;
   --cor-amarelo: #ffcc00;
   --cor-azul: #234383;
-  
+
   --cor-texto-claro: #ffffff;
   --cor-texto-medio: #aaaaaa;
 
@@ -33,7 +31,8 @@ body {
 
 .container {
   display: flex;
-  width: 80%;
+  width: 82%;
+  max-width: 1200px;
   margin: auto;
 }
 
@@ -43,18 +42,16 @@ body {
   align-items: center;
 }
 
-/* =========================================
-   HEADER
-========================================= */
 .header {
   height: var(--tamanho-header);
   background-color: var(--cor-fundo-1);
-  border-bottom: 4px solid var(--cor-vermelho);
+  border-bottom: 3px solid var(--cor-vermelho);
 }
 
 .header .container {
   display: flex;
   width: 90%;
+  max-width: none;
   margin: auto;
   justify-content: space-between;
   align-items: center;
@@ -79,7 +76,7 @@ body {
 }
 
 .navbar {
-  width: 450px;
+  width: 480px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -91,22 +88,19 @@ body {
 .navbar .separador {
   width: 2px;
   height: 24px;
-  background: #555;
+  background: #444;
   list-style: none;
 }
 
 .logo-img {
   height: 60px;
-  width: auto; 
+  width: auto;
   display: block;
 }
 
-/* =========================================
-   BANNER PRINCIPAL (HERO)
-========================================= */
 .banner_principal {
   height: var(--tamanho-banner);
-  position: relative; 
+  position: relative;
   background-image: url('../assets/imgs/fundo_vega.jpeg');
   background-size: cover;
   background-position: center bottom;
@@ -122,7 +116,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
@@ -132,14 +126,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 95%; /* Aumentado para 95% para dar mais largura total */
+  width: 94%;
+  max-width: 1400px;
   height: 100%;
   margin: auto;
 }
 
-/* 1. SEPARANDO O LAYOUT: as laterais esticam, o meio fica fixo */
 .area_player1, .area_player2 {
-  flex: 1; /* Ocupam todo o espaço restante fora do centro */
+  flex: 1;
   display: flex;
   align-items: center;
   background-color: transparent;
@@ -147,17 +141,16 @@ body {
 
 .area_player1 {
   justify-content: flex-start;
-  gap: 15px; 
+  gap: 20px;
 }
 
 .area_player2 {
   justify-content: flex-end;
-  gap: 15px; 
+  gap: 20px;
 }
 
-/* 2. PROTEGENDO O MEIO: Bloco fixo de 300px age como barreira contra o texto */
 .elementos_centrais {
-  flex: 0 0 300px; 
+  flex: 0 0 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -165,392 +158,427 @@ body {
   z-index: 10;
 }
 
-/* 3. LARGURA E QUEBRA DE TEXTO */
 .banner_texto {
   flex: 1;
-  max-width: 250px; /* Força o texto a pular de linha e não encostar no meio */
+  max-width: 240px;
 }
 
-.area_player1 .banner_texto h2 { text-align: left; }
-.area_player2 .banner_texto h2 { text-align: right; }
+.area_player1 .banner_texto h2 {
+  text-align: left;
+}
 
-/* 4. REDUZINDO AS IMAGENS LIGEIRAMENTE */
+.area_player2 .banner_texto h2 {
+  text-align: right;
+}
+
 .personagem_aura_blue, .personagem_aura_red {
   position: relative;
   display: inline-block;
-  flex-shrink: 0; /* Impede a imagem de distorcer */
+  flex-shrink: 0;
 }
 
 .personagem_aura_blue img {
-  height: 55vh; /* Imagem mais baixa fica menos larga, dando espaço ao texto */
-  max-height: 480px; 
+  height: 55vh;
+  max-height: 480px;
   object-fit: contain;
-  filter: drop-shadow(0 0 15px rgba(0, 150, 255, 0.6)) 
-          drop-shadow(0px 8px 10px rgba(0,0,0,0.8));
+  filter: drop-shadow(0 0 15px rgba(0, 150, 255, 0.6))
+          drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.8));
   animation: idleGlowBlue 3s ease-in-out infinite alternate;
 }
 
 .personagem_aura_red img {
-  height: 55vh; 
-  max-height: 480px; 
+  height: 55vh;
+  max-height: 480px;
   object-fit: contain;
-  filter: drop-shadow(0 0 15px rgba(255, 30, 0, 0.6)) 
-          drop-shadow(0px 8px 10px rgba(0,0,0,0.8));
+  filter: drop-shadow(0 0 15px rgba(255, 30, 0, 0.6))
+          drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.8));
   animation: idleGlowRed 3s ease-in-out infinite alternate;
 }
 
-/* 5. REDUZINDO A FONTE (de 2.2rem para 1.8rem) */
-.banner_texto h2, .area_player1 h2, .area_player2 h2 {
-  font-size: 1.8rem;
+.banner_texto h2 {
+  font-size: 1.85rem;
   font-weight: 900;
   text-transform: uppercase;
   color: var(--cor-texto-claro);
-  text-shadow: 3px 3px 0px #000, 0 0 12px rgba(255, 204, 0, 0.4);
+  text-shadow: 3px 3px 0px #000, 0 0 12px rgba(255, 204, 0, 0.35);
   margin: 0;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
-/* 6. AFASTANDO O BOTÃO DO "VS" COM MARGEM INFERIOR MAIOR */
 .logo_vs {
-  width: 180px;
-  margin-bottom: 60px; /* Esta margem agora empurra o botão Registrar para baixo */
-  filter: drop-shadow(0px 8px 6px rgba(0,0,0,0.9)) 
-          drop-shadow(0px 0px 25px rgba(255, 204, 0, 0.6));
+  width: 175px;
+  margin-bottom: 56px;
+  filter: drop-shadow(0px 8px 6px rgba(0, 0, 0, 0.9))
+          drop-shadow(0px 0px 25px rgba(255, 204, 0, 0.55));
   animation: pulseVS 2s ease-in-out infinite;
   transition: transform 0.3s ease;
 }
 
 .logo_vs:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .btn-registrar {
   background-color: var(--cor-vermelho);
   color: var(--cor-texto-claro);
-  border: 3px solid #000;
-  padding: 14px 40px;
+  border: 2px solid #000;
+  padding: 15px 34px;
   font-family: 'Barlow', sans-serif;
-  font-size: 22px;
-  font-weight: 900;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
   border-radius: 6px;
   cursor: pointer;
-  box-shadow: 4px 4px 0px #000, 0 0 15px rgba(209, 32, 39, 0.5);
+  box-shadow: 4px 4px 0px #000, 0 0 16px rgba(209, 32, 39, 0.45);
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
   position: relative;
-  z-index: 15; 
+  z-index: 15;
 }
 
 .btn-registrar:hover {
-  transform: scale(1.05) translateY(-2px);
-  box-shadow: 5px 5px 0px #000, 0 0 25px rgba(209, 32, 39, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 5px 5px 0px #000, 0 0 24px rgba(209, 32, 39, 0.75);
 }
 
-/* =========================================
-   ÁREA: SOBRE O PROJETO
-========================================= */
-.sobre_projeto {
-  background-color: var(--cor-fundo-1);
-  border-top: 4px solid var(--cor-amarelo);
-  min-height: calc(100vh - var(--tamanho-header));
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  padding: 40px 0;
-}
-
-.sobre_conteudo {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.sobre_imagem img {
-  height: 300px;
-  width: auto;
-}
-
-.sobre_titulos {
-  width: 35%;
-}
-
-.tag {
-  color: var(--cor-texto-medio);
-  font-size: 14px;
-  font-weight: bold;
+.badge_secao {
+  background-color: var(--cor-amarelo);
+  color: #000000;
+  font-size: 12px;
+  font-weight: 800;
   letter-spacing: 1.5px;
+  padding: 5px 14px;
+  border-radius: 4px;
   text-transform: uppercase;
+  margin-bottom: 14px;
 }
 
-.sobre_titulos h2 {
-  font-size: 28px;
-  margin: 5px 0 0 0;
-}
-
-.sobre_texto {
-  width: 45%;
-}
-
-.sobre_texto p {
-  color: var(--cor-texto-medio);
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 15px;
-}
-
-.link-amarelo {
+.tag_secao {
   color: var(--cor-amarelo);
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
-.link-amarelo:hover {
+.titulo_secao {
+  font-size: 36px;
+  font-weight: 800;
+  margin: 0 0 56px 0;
+  text-align: center;
   color: var(--cor-texto-claro);
 }
 
-/* =========================================
-   SEÇÃO: O QUE O SISTEMA FAZ
-========================================= */
-.sistema_section {
-  background-color: var(--cor-fundo-2); 
-  border-top: 4px solid var(--cor-vermelho);
-  min-height: calc(100vh - var(--tamanho-header)); 
+.secao_universo {
+  background-color: var(--cor-fundo-2);
+  border-top: 1px solid var(--cor-borda-sutil);
+  padding: 110px 0;
+}
+
+.cards_universo {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 28px;
+  width: 100%;
+}
+
+.card_clean {
+  flex: 1;
+  background-color: var(--cor-fundo-cards);
+  border: 1px solid var(--cor-borda-sutil);
+  border-radius: 10px;
+  padding: 36px 28px;
   box-sizing: border-box;
-  padding: 40px 0;
+  transition: border-color 0.25s ease, transform 0.25s ease;
 }
 
-.tag-titulo {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--cor-texto-medio);
-  letter-spacing: 1.5px;
-  margin-bottom: 10px;
-  text-transform: uppercase;
+.card_clean:hover {
+  border-color: var(--cor-amarelo);
+  transform: translateY(-4px);
 }
 
-.titulo-sistema {
-  font-size: 32px;
+.card_numero {
+  display: inline-block;
+  font-size: 13px;
   font-weight: 800;
-  margin-top: 0;
-  margin-bottom: 40px;
-  text-align: center;
-  background: linear-gradient(90deg, var(--cor-amarelo), #ff6b00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  color: var(--cor-amarelo);
+  letter-spacing: 1.5px;
+  margin-bottom: 14px;
 }
 
-.sistema_cards {
+.card_clean h3 {
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: var(--cor-texto-claro);
+}
+
+.card_clean p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--cor-texto-medio);
+  margin: 0;
+}
+
+.secao_lutadores {
+  background-color: var(--cor-fundo-1);
+  border-top: 1px solid var(--cor-borda-sutil);
+  padding: 110px 0;
+}
+
+.lutadores_conteudo {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 40px;
+  width: 100%;
+}
+
+.grade_lutadores {
+  width: 52%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  width: 100%;
+  gap: 12px;
 }
 
-.card_sistema {
+.lutador_item {
+  width: calc(25% - 9px);
+  aspect-ratio: 1 / 1;
   background-color: var(--cor-fundo-cards);
-  border: 1px solid #333;
-  border-radius: 12px;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  width: 48%; 
+  border: 2px solid var(--cor-borda-sutil);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
   box-sizing: border-box;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
-.card_sistema img {
-  height: 75px; 
-  object-fit: contain;
-}
-
-.card_sistema_texto {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.card_sistema_texto h3 {
-  margin: 0;
-  color: var(--cor-texto-claro);
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.card_sistema_texto p {
-  margin: 0;
-  color: var(--cor-texto-medio);
-  font-size: 14px;
-}
-
-.card_sistema:hover {
-  border-color: var(--cor-amarelo);
-  background-color: rgba(255, 204, 0, 0.08);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(255, 204, 0, 0.15);
-}
-
-/* =========================================
-   SEÇÃO: JORNADA SÓCIO-EMOCIONAL
-========================================= */
-.jornada_socio {
-  background-color: var(--cor-fundo-1);
-  border-top: 4px solid var(--cor-amarelo);
-  min-height: calc(100vh - var(--tamanho-header));
-  display: flex;
-  align-items: center; 
-  box-sizing: border-box;
-  padding: 40px 0;
-}
-
-.header-jornada {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 40px;
-}
-
-.titulo-jornada {
-  font-size: 32px;
-  font-weight: 800;
-  font-family: monospace; 
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  text-align: center;
-  background: linear-gradient(90deg, var(--cor-amarelo), #ff6b00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.health-bar-container {
-  width: 400px;
-  height: 20px;
-  border: 4px solid var(--cor-texto-claro);
-  padding: 2px;
-  background-color: var(--cor-fundo-1);
-}
-
-.health-bar-fill {
-  width: 70%; 
+.lutador_item img {
+  width: 100%;
   height: 100%;
-  background-color: var(--cor-vermelho);
+  object-fit: cover;
+  display: block;
 }
 
-.jornada_cards {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  gap: 20px;
+.lutador_item:hover {
+  border-color: rgba(255, 204, 0, 0.7);
+  transform: scale(1.03);
 }
 
-.card_round {
-  width: 32%;
+.lutador_item.ativo {
+  border-color: var(--cor-amarelo);
+  box-shadow: 0 0 14px rgba(255, 204, 0, 0.45);
+}
+
+.card_perfil_lutador {
+  width: 48%;
   background-color: var(--cor-fundo-cards);
-  border: 4px solid var(--cor-texto-claro); 
-  padding: 20px;
+  border: 1px solid var(--cor-borda-sutil);
+  border-radius: 10px;
+  padding: 36px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+.perfil_topo {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.perfil_topo img {
+  width: 110px;
+  height: 110px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid var(--cor-amarelo);
+  background-color: var(--cor-fundo-1);
+  flex-shrink: 0;
+}
+
+.perfil_titulos h3 {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0 0 12px 0;
+  color: var(--cor-texto-claro);
+}
+
+.perfil_tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag_pilula {
+  background-color: #23232c;
+  color: var(--cor-texto-claro);
+  border: 1px solid #353542;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.tag_golpe {
+  border-color: rgba(255, 204, 0, 0.45);
+  color: var(--cor-amarelo);
+}
+
+.perfil_descricao {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--cor-texto-medio);
+  margin: 0;
+}
+
+.secao_historia {
+  background-color: var(--cor-fundo-2);
+  border-top: 1px solid var(--cor-borda-sutil);
+  padding: 110px 0;
+}
+
+.timeline_lista {
   position: relative;
   display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  justify-content: space-between;
+  gap: 40px;
+  width: 100%;
+  margin-bottom: 72px;
 }
 
-.card_round:nth-child(2) {
-  border-color: var(--cor-vermelho);
-}
-
-.card_round:nth-child(1), .card_round:nth-child(3) {
-  border-color: var(--cor-amarelo);
-}
-
-.card_round:hover {
-  transform: translateY(-5px);
-}
-
-.card_round:nth-child(1):hover, .card_round:nth-child(3):hover {
-  box-shadow: 0 0 20px rgba(255, 204, 0, 0.6);
-}
-
-.card_round:nth-child(2):hover {
-  box-shadow: 0 0 20px rgba(209, 32, 39, 0.6);
-}
-
-.round-title {
-  color: var(--cor-amarelo);
-  font-size: 22px;
-  font-family: monospace;
-  margin-top: 0;
-  margin-bottom: 15px;
-}
-
-.round-red {
-  color: var(--cor-vermelho);
-}
-
-.round-title span {
-  font-size: 14px;
-  color: var(--cor-texto-medio);
-}
-
-.card-content p {
-  color: var(--cor-texto-claro);
-  font-size: 15px;
-  line-height: 1.5;
-  margin-bottom: 10px;
-}
-
-.destaque {
-  color: var(--cor-amarelo);
-  font-weight: bold;
-}
-
-.card-icon {
-  width: 40px;
-  height: auto;
-  image-rendering: pixelated;
+.timeline_linha {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  top: 22px;
+  left: 14%;
+  right: 14%;
+  height: 1px;
+  background-color: rgba(255, 204, 0, 0.35);
+  z-index: 1;
 }
 
-.press-start {
+.timeline_passo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline_numero {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--cor-fundo-2);
+  border: 1px solid var(--cor-amarelo);
   color: var(--cor-amarelo);
-  font-family: monospace;
-  font-size: 24px;
-  margin-top: 50px;
+  font-size: 15px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
 }
 
-.blink {
-  animation: blinker 1s linear infinite;
+.timeline_passo h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: var(--cor-texto-claro);
 }
 
-/* =========================================
-   ANIMAÇÕES
-========================================= */
-@keyframes blinker {
-  50% { opacity: 0; }
+.timeline_passo p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--cor-texto-medio);
+  margin: 0;
+  max-width: 310px;
+}
+
+.valores_linha {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+}
+
+.card_valor {
+  flex: 1;
+  background-color: var(--cor-fundo-cards);
+  border: 1px solid var(--cor-borda-sutil);
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.card_valor h4 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--cor-texto-claro);
+  margin: 0 0 8px 0;
+}
+
+.card_valor p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--cor-texto-medio);
+  margin: 0;
+}
+
+.secao_cta {
+  background: radial-gradient(circle at center, rgba(209, 32, 39, 0.16) 0%, var(--cor-fundo-1) 65%);
+  border-top: 1px solid var(--cor-borda-sutil);
+  padding: 120px 0;
+  text-align: center;
+}
+
+.titulo_cta {
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--cor-amarelo);
+  margin: 0 0 16px 0;
+  letter-spacing: 1px;
+}
+
+.subtitulo_cta {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--cor-texto-medio);
+  max-width: 560px;
+  margin: 0 0 36px 0;
+}
+
+.footer {
+  background-color: var(--cor-fundo-1);
+  border-top: 1px solid var(--cor-borda-sutil);
+  padding: 28px 0;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+  color: #666666;
 }
 
 @keyframes idleGlowBlue {
-  0% { filter: drop-shadow(0 0 10px rgba(0, 150, 255, 0.4)) drop-shadow(0px 8px 10px rgba(0,0,0,0.8)); }
-  100% { filter: drop-shadow(0 0 20px rgba(0, 150, 255, 0.7)) drop-shadow(0px 8px 10px rgba(0,0,0,0.8)); }
+  0% { filter: drop-shadow(0 0 10px rgba(0, 150, 255, 0.4)) drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.8)); }
+  100% { filter: drop-shadow(0 0 20px rgba(0, 150, 255, 0.7)) drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.8)); }
 }
 
 @keyframes idleGlowRed {
-  0% { filter: drop-shadow(0 0 10px rgba(255, 30, 0, 0.4)) drop-shadow(0px 8px 10px rgba(0,0,0,0.8)); }
-  100% { filter: drop-shadow(0 0 20px rgba(255, 30, 0, 0.7)) drop-shadow(0px 8px 10px rgba(0,0,0,0.8)); }
+  0% { filter: drop-shadow(0 0 10px rgba(255, 30, 0, 0.4)) drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.8)); }
+  100% { filter: drop-shadow(0 0 20px rgba(255, 30, 0, 0.7)) drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.8)); }
 }
 
 @keyframes pulseVS {
   0% { transform: scale(1); }
-  50% { transform: scale(1.06); filter: drop-shadow(0px 8px 6px rgba(0,0,0,0.9)) drop-shadow(0px 0px 35px rgba(255, 204, 0, 0.8)); }
+  50% { transform: scale(1.06); filter: drop-shadow(0px 8px 6px rgba(0, 0, 0, 0.9)) drop-shadow(0px 0px 35px rgba(255, 204, 0, 0.8)); }
   100% { transform: scale(1); }
 }
