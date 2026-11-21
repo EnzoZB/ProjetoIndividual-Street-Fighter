@@ -77,6 +77,22 @@ function buscarTop5Rosca(idUsuarioLogado) {
     return database.executar(instrucaoSql);
 }
 
+function buscarVitoriasPorMes(idUsuarioLogado) {
+    var instrucaoSql = `
+        SELECT DATE_FORMAT(l.data_partida, '%Y-%m') AS mes_ano, p.nome AS nome_personagem, COUNT(l.id) AS qtd_vitorias
+        FROM luta l
+             JOIN personagem p 
+                  ON l.fkPersonagem_seu = p.id
+        WHERE l.fkUsuario = ${idUsuarioLogado} AND l.resultado = 'Vitória'
+        GROUP BY mes_ano, p.nome
+        ORDER BY mes_ano ASC;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
+
 module.exports = {
     buscarKpiPersonagemPreferido,
     buscarKpiWinRate,

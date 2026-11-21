@@ -21,4 +21,8 @@ router.get("/grafico-rosca-pers/:idUsuario", function (req, res) {
     partidaController.buscarTop5Rosca(req, res);
 });
 
+router.get("/grafico-vitorias/:idUsuario", function (req, res) {
+    partidaController.buscarVitoriasPorMes(req, res);
+});
+
 module.exports = router;

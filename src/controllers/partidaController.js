@@ -73,11 +73,27 @@ function buscarTop5Rosca(req, res) {
         });
 }
 
+function buscarVitoriasPorMes(req, res) {
+    var idUsuarioLogado = req.params.idUsuario;
+
+    partidaModel.buscarVitoriasPorMes(idUsuarioLogado)
+        .then(function (resultadoBancoDados) {
+            if (resultadoBancoDados.length > 0) {
+                res.status(200).json(resultadoBancoDados);
+            } else {
+                res.status(204).send("Nenhuma vitória encontrada.");
+            }
+        }).catch(function (erroBancoDados) {
+            console.log(erroBancoDados);
+            res.status(500).json(erroBancoDados.sqlMessage);
+        });
+}
 
 
 module.exports = {
     buscarKpiPersonagemPreferido,
     buscarKpiWinRate,
     buscarKpiNemesis,
-    buscarTop5Rosca
+    buscarTop5Rosca,
+    buscarVitoriasPorMes
 }
