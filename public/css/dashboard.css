@@ -377,6 +377,13 @@ a.btn-nova-luta:active {
     width: 100% !important;
 }
 
+.chart-wrapper {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+}
+
 
 /* =========================================
    TELA DE NOVA LUTA & PADRONIZAÇÃO DOS SELECTS
