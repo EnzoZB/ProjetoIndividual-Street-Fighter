@@ -149,8 +149,114 @@ function desenharGraficoRoscaRival(labelsRivais, dadosQuantidade) {
     });
 }
 
+function buscarDadosGraficoBarras() {
+    var idUsuarioLogado = sessionStorage.ID_USUARIO || 1;
+
+    fetch(`/rivais/grafico-rivais-barras/${idUsuarioLogado}`)
+        .then(function (respostaBackEnd) {
+            if (respostaBackEnd.status == 204) {
+                console.log("Nenhuma partida encontrada para o gráfico de barras.");
+            } else if (respostaBackEnd.ok) {
+                respostaBackEnd.json().then(function (dadosGrafico) {
+
+                    var labelsRivais = [];
+                    var dadosVitorias = [];
+                    var dadosDerrotas = [];
+
+                    for (var i = 0; i < dadosGrafico.length; i++) {
+                        var registro = dadosGrafico[i];
+
+                        labelsRivais.push(registro.nomeRivais);
+                        dadosVitorias.push(registro.totalVitoriasRival);
+                        dadosDerrotas.push(registro.totalDerrotasRival);
+                    }
+
+                    desenharGraficoBarras(labelsRivais, dadosVitorias, dadosDerrotas);
+                });
+            } else {
+                console.error('Erro na API do gráfico de barras');
+            }
+        })
+        .catch(function (erroDeRede) {
+            console.error(`Erro na requisição do Gráfico de Barras: ${erroDeRede.message}`);
+        });
+}
+
+var graficoBarrasAtual = null;
+
+function desenharGraficoBarras(labelsRivais, dadosVitorias, dadosDerrotas) {
+    var elementoCanvas = document.getElementById('graficoConfrontoDireto');
+    var ctx = elementoCanvas.getContext('2d');
+
+    if (graficoBarrasAtual) {
+        graficoBarrasAtual.destroy();
+    }
+
+    graficoBarrasAtual = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labelsRivais,
+            datasets: [
+                {
+                    label: 'Minhas Vitórias',
+                    data: dadosVitorias,
+                    backgroundColor: '#3B82F6', 
+                    borderWidth: 0
+                },
+                {
+                    label: 'Derrotas',
+                    data: dadosDerrotas,
+                    backgroundColor: '#E63946', 
+                    borderWidth: 0
+                }
+            ]
+        },
+        options: {
+            indexAxis: 'y', 
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#ffffff',
+                        padding: 20,
+                        font: {
+                            family: "'Arial', sans-serif",
+                            size: 12
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: '#b0bac2',
+                        precision: 0 
+                    },
+                    grid: {
+                        color: '#222222'
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: '#ffffff',
+                        font: {
+                            weight: 'bold'
+                        }
+                    },
+                    grid: {
+                        color: '#222222'
+                    }
+                }
+            }
+        }
+    });
+}
+
 window.onload = function () {
     carregarKpiMaiorFregues();
     carregarKpiPiorAlgoz();
     buscarDadosGraficoRosca();
+    buscarDadosGraficoBarras();
 };
