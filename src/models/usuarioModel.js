@@ -11,12 +11,12 @@ function autenticar(email, senha) {
     return database.executar(instrucao);
 }
 
-function cadastrar(nome, nickname, cpf, email, senha) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, nickname, cpf, email, senha);
+function cadastrar(nome, nickname, email, senha) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, nickname, email, senha);
     
     // Comando SQL para inserir os dados do novo jogador no banco de dados
     var instrucao = `
-        INSERT INTO usuario (nome, nickname, cpf, email, senha) VALUES ('${nome}', '${nickname}', '${cpf}', '${email}', '${senha}');
+        INSERT INTO usuario (nome, nickname, email, senha) VALUES ('${nome}', '${nickname}', '${email}', '${senha}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
