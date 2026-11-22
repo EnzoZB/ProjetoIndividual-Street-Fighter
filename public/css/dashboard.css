@@ -152,84 +152,54 @@ a.btn-nova-luta:active {
 }
 
 /* =========================================
-   CONTEÚDO PRINCIPAL E HEADER DA DASHBOARD
+   HEADER DA DASHBOARD (Visual Limpo)
    ========================================= */
+
 .main-content {
     flex: 1;
-    padding: 15px 20px;
+    min-width: 0;
+    padding: 18px 26px;
     display: flex;
     flex-direction: column;
-    gap: 20px; 
-    overflow: hidden; 
+    gap: 20px;
+    overflow: hidden;
 }
 
 .dashboard-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #141414;
-    border: 3px solid #d12027;
-    outline: 2px solid #ffcc00;
-    padding: 10px 24px;
-    box-shadow: 6px 6px 0px #000000;
+    padding: 6px 0 14px 16px;
+    border-left: 5px solid #d12027;
+    border-bottom: 1px solid #2a2a32;
 }
 
 .dashboard-header h1 {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 900;
-    color: #ffcc00;
+    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     text-shadow: 3px 3px 0px #000000;
     margin: 0;
 }
 
-.dashboard-header h1::before,
-.dashboard-header h1::after {
-    content: " :: ";
-    color: #d12027;
-}
 
-/* Botões de Filtro de Período (Estilo Arcade) */
-.filtros-tempo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.filtros-tempo span {
-    font-size: 14px;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: #ffffff;
-}
-
-.btn-filtro {
-    background-color: #000000;
-    color: #a0a8b0;
-    border: 2px solid #444444;
-    border-radius: 0;
-    padding: 8px 16px;
-    font-family: 'Barlow', sans-serif;
-    font-size: 14px;
-    font-weight: 800;
-    text-transform: uppercase;
-    cursor: pointer;
-    box-shadow: 3px 3px 0px #000000;
-    transition: 0.1s;
-}
-
-.btn-filtro:hover {
-    color: #ffffff;
-    border-color: #ffcc00;
-}
-
-.btn-filtro.ativo {
-    background-color: #234383;
+.dashboard-header h1 span {
     color: #ffcc00;
-    border: 2px solid #ffcc00;
-    box-shadow: 3px 3px 0px #000000;
-    text-shadow: 1px 1px 0px #000000;
+}
+
+
+.badge-periodo {
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: #b0bac2;
+    background-color: #141418;
+    border: 1px solid #2e2e38;
+    padding: 6px 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* =========================================
@@ -397,36 +367,145 @@ a.btn-nova-luta:active {
     padding: 10px 0;
 }
 
-
-.card-cadastro .formulario select,
-.formulario select {
-    background-color: #000000 !important;
-    border: 2px solid #ffcc00 !important;
-    color: #ffffff !important;
-    text-align: center;
-    border-radius: 0 !important;
-    margin: 0;
-    padding: 6px 10px;
-    font-family: monospace;
-    font-size: 14px;
-    height: auto !important;
-    cursor: pointer;
+.container-nova-luta .card-cadastro {
+    width: 100%;
+    max-width: 680px;
+    background-color: #141418;
+    border: 2px solid #2a2a32;
+    border-top: 4px solid #d12027;
+    outline: none;
+    border-radius: 0;
+    padding: 32px 38px;
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.85);
 }
 
-.card-cadastro .formulario select:focus,
-.formulario select:focus {
-    border-color: #d12027 !important;
+.container-nova-luta .card-cadastro h2 {
+    font-size: 20px;
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: left;
+    border-bottom: 1px solid #2a2a32;
+    padding-bottom: 14px;
+    margin-bottom: 24px;
+}
+
+.container-nova-luta .formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 100%;
+}
+
+.form-linha {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.container-nova-luta .campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    margin: 0;
+}
+
+.container-nova-luta .campo span {
+    font-size: 12px;
+    font-weight: 800;
+    color: #b0bac2;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    text-align: left;
+}
+
+.label-com-acao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.link-novo-rival {
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffcc00;
+    text-decoration: none;
+    transition: color 0.15s;
+}
+
+.link-novo-rival:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.container-nova-luta .formulario select,
+.container-nova-luta .formulario input[type="date"] {
+    width: 100%;
+    background-color: #0b0b0d !important;
+    border: 2px solid #2e2e38 !important;
+    color: #ffffff !important;
+    text-align: left;
+    border-radius: 0 !important;
+    margin: 0;
+    padding: 12px 14px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    height: auto !important;
+    cursor: pointer;
+    transition: border-color 0.15s;
+}
+
+.container-nova-luta .formulario select:focus,
+.container-nova-luta .formulario input[type="date"]:focus {
+    border-color: #ffcc00 !important;
     outline: none;
 }
 
-.card-cadastro .formulario select option {
-    background-color: #000000;
+.container-nova-luta .formulario select option {
+    background-color: #0b0b0d;
     color: #ffffff;
-    font-family: monospace;
 }
 
-/* Deixa o ícone de calendário branco no input de data */
-.card-cadastro .formulario input[type="date"]::-webkit-calendar-picker-indicator {
+
+.container-nova-luta .formulario input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
     cursor: pointer;
+}
+
+.container-nova-luta .botao {
+    width: 100%;
+    height: auto !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+    padding: 14px 20px !important;
+    line-height: 1;
+    background-color: #d12027;
+    color: #ffffff;
+    border: 2px solid #000000;
+    outline: 2px solid #ffcc00;
+    border-radius: 0;
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    box-shadow: 5px 5px 0px #000000;
+    transition: transform 0.1s, background-color 0.15s;
+}
+
+.container-nova-luta .botao:hover {
+    background-color: #ff2a32;
+    color: #ffcc00;
+}
+
+.container-nova-luta .botao:active {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0px #000000;
 }

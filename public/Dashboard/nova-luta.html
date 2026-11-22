@@ -35,7 +35,7 @@
         <div class="main-content">
 
             <div class="dashboard-header">
-                <h1>PAINEL DE RIVALIDADE :: REGISTRAR COMBATE</h1>
+                <h1>PAINEL DE RIVALIDADE // <span>REGISTRAR COMBATE</span></h1>
             </div>
 
             <div class="alerta_erro">
@@ -46,68 +46,77 @@
 
             <div class="container-nova-luta">
                 <div class="card-cadastro">
-                    <h2>Nova Luta</h2>
+                    <h2>Dados da Partida</h2>
 
                     <div class="formulario">
 
+                        <div class="form-linha">
+                            <div class="campo">
+                                <span>Resultado do Combate</span>
+                                <select id="select_resultado">
+                                    <option value="" disabled selected>-- Selecione --</option>
+                                    <option value="Vitória">VITÓRIA (YOU WIN)</option>
+                                    <option value="Derrota">DERROTA (YOU LOSE)</option>
+                                </select>
+                            </div>
+
+                            <div class="campo">
+                                <span>Data da Partida</span>
+                                <input id="input_data_luta" type="date">
+                            </div>
+                        </div>
+
                         <div class="campo">
-                            <span>Resultado do Combate:</span>
-                            <select id="select_resultado">
-                                <option value="" disabled selected>-- Selecione --</option>
-                                <option value="Vitória">VITÓRIA (YOU WIN)</option>
-                                <option value="Derrota">DERROTA (YOU LOSE)</option>
+                            <div class="label-com-acao">
+                                <span>Jogador Adversário (Rival)</span>
+                                <a href="../cadastro.html" class="link-novo-rival">Amigo não cadastrado? Cadastre-o aqui →</a>
+                            </div>
+                            <select id="sel_rival">
+                                <option value="" disabled selected>-- Carregando rivais... --</option>
                             </select>
                         </div>
 
-                        <label>JOGADOR ADVERSÁRIO (RIVAL):</label>
-                        <select id="sel_rival">
-                            <option value="" disabled selected>-- Carregando rivais... --</option>
-                        </select>
+                        <div class="form-linha">
+                            <div class="campo">
+                                <span>Seu Personagem (Player 1)</span>
+                                <select id="select_meu_personagem">
+                                    <option value="" disabled selected>-- Escolha seu Lutador --</option>
+                                    <option value="1">Ryu</option>
+                                    <option value="2">Ken</option>
+                                    <option value="3">Chun-Li</option>
+                                    <option value="4">Guile</option>
+                                    <option value="5">Blanka</option>
+                                    <option value="6">E. Honda</option>
+                                    <option value="7">Zangief</option>
+                                    <option value="8">Dhalsim</option>
+                                    <option value="9">Balrog</option>
+                                    <option value="10">Vega</option>
+                                    <option value="11">Sagat</option>
+                                    <option value="12">M. Bison</option>
+                                </select>
+                            </div>
 
-                        <div class="campo">
-                            <span>Seu Personagem (Player 1):</span>
-                            <select id="select_meu_personagem">
-                                <option value="" disabled selected>-- Escolha seu Lutador --</option>
-                                <option value="1">Ryu</option>
-                                <option value="2">Ken</option>
-                                <option value="3">Chun-Li</option>
-                                <option value="4">Guile</option>
-                                <option value="5">Blanka</option>
-                                <option value="6">E. Honda</option>
-                                <option value="7">Zangief</option>
-                                <option value="8">Dhalsim</option>
-                                <option value="9">Balrog</option>
-                                <option value="10">Vega</option>
-                                <option value="11">Sagat</option>
-                                <option value="12">M. Bison</option>
-                            </select>
+                            <div class="campo">
+                                <span>Personagem Adversário (Player 2)</span>
+                                <select id="select_personagem_adversario">
+                                    <option value="" disabled selected>-- Lutador do Rival --</option>
+                                    <option value="1">Ryu</option>
+                                    <option value="2">Ken</option>
+                                    <option value="3">Chun-Li</option>
+                                    <option value="4">Guile</option>
+                                    <option value="5">Blanka</option>
+                                    <option value="6">E. Honda</option>
+                                    <option value="7">Zangief</option>
+                                    <option value="8">Dhalsim</option>
+                                    <option value="9">Balrog</option>
+                                    <option value="10">Vega</option>
+                                    <option value="11">Sagat</option>
+                                    <option value="12">M. Bison</option>
+                                </select>
+                            </div>
                         </div>
 
-                        <div class="campo">
-                            <span>Personagem Adversário (Player 2):</span>
-                            <select id="select_personagem_adversario">
-                                <option value="" disabled selected>-- Lutador do Rival --</option>
-                                <option value="1">Ryu</option>
-                                <option value="2">Ken</option>
-                                <option value="3">Chun-Li</option>
-                                <option value="4">Guile</option>
-                                <option value="5">Blanka</option>
-                                <option value="6">E. Honda</option>
-                                <option value="7">Zangief</option>
-                                <option value="8">Dhalsim</option>
-                                <option value="9">Balrog</option>
-                                <option value="10">Vega</option>
-                                <option value="11">Sagat</option>
-                                <option value="12">M. Bison</option>
-                            </select>
-                        </div>
-
-                        <div class="campo">
-                            <span>Data da Partida:</span>
-                            <input id="input_data_luta" type="date">
-                        </div>
-
-                        <button class="botao" onclick="registrarLuta()">Registrar</button>
+                        <button class="botao" onclick="registrarLuta()">Registrar Combate</button>
 
                         <div id="div_aguardar" class="loading-div">
                             <img src="../assets/circle-loading.gif" id="loading-gif">

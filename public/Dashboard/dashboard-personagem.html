@@ -17,17 +17,15 @@
         <div class="sidebar">
 
             <div class="logo-container">
-
                 <img src="../assets/imgs/logo-street-tracker-removebg-preview.png" alt="Logo do Site"
                     class="logo-sidebar">
-
             </div>
 
             <a href="nova-luta.html" class="btn-nova-luta">+ NOVA LUTA</a>
 
             <div class="menu-navegacao">
                 <ul>
-                    <li><a href="dashboard-personagem.html">Personagens</a></li>
+                    <li><a href="dashboard-personagem.html" class="ativo">Personagens</a></li>
                     <li><a href="dashboard-jogadores.html">Jogadores</a></li>
                 </ul>
             </div>
@@ -39,18 +37,14 @@
         <div class="main-content">
 
             <div class="dashboard-header">
-                <h1>PAINEL DE RIVALIDADE :: PERSONAGENS</h1>
-                <div class="filtros-tempo">
-                    <span>Período:</span>
-                    <button type="button" class="btn-filtro ativo">Último Mês</button>
-                    <button type="button" class="btn-filtro">Todo o Tempo</button>
-                </div>
+                <h1>PAINEL DE RIVALIDADE // <span>PERSONAGENS</span></h1>
+                <span class="badge-periodo">HISTÓRICO: TODO O TEMPO</span>
             </div>
 
             <div class="kpis-container">
 
                 <div class="card-kpi">
-                    <h3>PERSONAGEM PREFERIDO <span>(Últimos 30 Dias)</span></h3>
+                    <h3>PERSONAGEM PREFERIDO <span>(Todo o Tempo)</span></h3>
                     <h2 id="kpi-preferido-nome">...</h2>
                     <p>
                         Partidas: <strong id="kpi-preferido-partidas">-</strong> |
@@ -59,7 +53,7 @@
                 </div>
 
                 <div class="card-kpi">
-                    <h3>WIN RATE GERAL <span>(Mês Atual)</span></h3>
+                    <h3>WIN RATE GERAL <span>(Todo o Tempo)</span></h3>
                     <h2 id="kpi-winrate-valor">...</h2>
                     <p>
                         Vitórias: <strong id="kpi-winrate-vitorias">-</strong> |
@@ -68,7 +62,7 @@
                 </div>
 
                 <div class="card-kpi">
-                    <h3>NÊMESIS <span>(Últimos 30 Dias)</span></h3>
+                    <h3>NÊMESIS <span>(Todo o Tempo)</span></h3>
                     <h2 id="kpi-nemesis-nome">...</h2>
                     <p>
                         Derrotas: <strong id="kpi-nemesis-derrotas">-</strong>
@@ -80,14 +74,14 @@
             <div class="charts-container">
 
                 <div class="card-chart chart-linha">
-                    <h3>TERMÔMETRO DE VITÓRIAS <span>(Jan-Fev)</span></h3>
+                    <h3>TERMÔMETRO DE VITÓRIAS <span>(Todo o Tempo)</span></h3>
                     <div class="chart-wrapper">
                         <canvas id="graficoVitorias"></canvas>
                     </div>
                 </div>
 
                 <div class="card-chart chart-rosca">
-                    <h3>DISTRIBUIÇÃO DO ELENCO <span>(Temporada Atual)</span></h3>
+                    <h3>DISTRIBUIÇÃO DO ELENCO <span>(Todo o Tempo)</span></h3>
                     <div class="chart-wrapper">
                         <canvas id="graficoElenco"></canvas>
                     </div>
