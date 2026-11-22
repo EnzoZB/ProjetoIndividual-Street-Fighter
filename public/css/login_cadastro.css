@@ -39,7 +39,7 @@ body {
 .header {
   height: var(--tamanho-header);
   background-color: var(--cor-fundo-1);
-  border-bottom: 4px solid var(--cor-vermelho);
+  border-bottom: 3px solid var(--cor-vermelho);
   box-sizing: border-box;
 }
 
@@ -70,13 +70,20 @@ body {
 }
 
 .navbar {
-  width: 450px;
+  width: 480px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.navbar .separador {
+  width: 2px;
+  height: 24px;
+  background: #444;
+  list-style: none;
 }
 
 .logo-img {
@@ -109,7 +116,6 @@ body {
   position: relative;
 }
 
-/* Base padronizada para os cartões (.card, .card-login e .card-cadastro) */
 .card, .card-login, .card-cadastro {
   background-color: var(--cor-fundo-cards);
   border: 4px solid var(--cor-vermelho); 
