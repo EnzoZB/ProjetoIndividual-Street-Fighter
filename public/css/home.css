@@ -438,7 +438,7 @@ body {
 .secao_historia {
   background-color: var(--cor-fundo-2);
   border-top: 1px solid var(--cor-borda-sutil);
-  padding: 110px 0;
+  padding: 80px 0;
 }
 
 .timeline_lista {
@@ -447,7 +447,7 @@ body {
   justify-content: space-between;
   gap: 40px;
   width: 100%;
-  margin-bottom: 72px;
+  margin-bottom: 48px;
 }
 
 .timeline_linha {
@@ -525,6 +525,66 @@ body {
 }
 
 .card_valor p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--cor-texto-medio);
+  margin: 0;
+}
+.card_ods {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 24px;
+  background-color: var(--cor-fundo-cards);
+  border: 1px solid var(--cor-borda-sutil);
+  border-left: 4px solid #4c9f38;
+  border-radius: 8px;
+  padding: 20px 28px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.ods_selo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 90px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background-color: rgba(76, 159, 56, 0.12);
+  border: 1px solid rgba(76, 159, 56, 0.45);
+  flex-shrink: 0;
+}
+
+.ods_numero {
+  font-size: 17px;
+  font-weight: 900;
+  color: #4c9f38;
+  letter-spacing: 1px;
+}
+
+.ods_meta {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--cor-texto-medio);
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+.ods_texto {
+  text-align: left;
+}
+
+.ods_texto h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cor-texto-claro);
+  margin: 0 0 6px 0;
+}
+
+.ods_texto p {
   font-size: 14px;
   line-height: 1.55;
   color: var(--cor-texto-medio);
