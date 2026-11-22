@@ -50,8 +50,29 @@ function buscarTop5Rivais(req, res) {
         });
 }
 
+function buscarTop5RivaisBarras(req, res) {
+
+    var idUsuarioLogado = req.params.idUsuario;
+
+    rivalModel.buscarTop5RivaisBarras(idUsuarioLogado)
+        .then(function (resultadoBancoDados) {
+
+            if (resultadoBancoDados.length > 0) {
+                res.status(200).json(resultadoBancoDados);
+            } else {
+                res.status(204).send("Nenhuma partida encontrada para este usuário.");
+            }
+        }).catch(function (erroBancoDados) {
+            console.log(erroBancoDados);
+            res.status(500).json(erroBancoDados.sqlMessage);
+        });
+}
+
+
+
 module.exports = {
     buscarKpiMaiorFregues,
     buscarKpiPiorAlgoz,
-    buscarTop5Rivais
+    buscarTop5Rivais,
+    buscarTop5RivaisBarras
 }

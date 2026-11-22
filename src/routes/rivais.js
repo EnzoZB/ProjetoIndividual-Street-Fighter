@@ -15,4 +15,8 @@ router.get("/grafico-rivais-rosca/:idUsuario", function (req, res) {
     rivalController.buscarTop5Rivais(req, res);
 });
 
+router.get("/grafico-rivais-barras/:idUsuario", function (req, res) {
+    rivalController.buscarTop5RivaisBarras(req, res);
+});
+
 module.exports = router;

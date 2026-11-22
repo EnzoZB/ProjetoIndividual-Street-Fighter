@@ -54,8 +54,34 @@ function buscarTop5Rivais(idUsuarioLogado) {
     return database.executar(instrucaoSql);
 }
 
+function buscarTop5RivaisBarras (idUsuarioLogado) {
+    var instrucaoSql = `
+    SELECT u.nickname AS 'nomeRivais',
+    SUM(CASE 
+       WHEN l.resultado = 'Derrota' THEN 1 
+       ELSE 0 
+    END) AS totalDerrotasRival,
+    SUM(CASE 
+       WHEN l.resultado = 'Vitória' THEN 1 
+       ELSE 0 
+    END) AS totalVitoriasRival
+    FROM usuario u
+         JOIN luta l 
+              ON l.fkRival = u.id
+    WHERE l.fkUsuario = ${idUsuarioLogado}
+    GROUP BY u.nickname
+    ORDER BY COUNT(l.id) DESC
+    LIMIT 5;
+    `;
+    
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+
+}
+
 module.exports = {
     buscarKpiMaiorFregues,
     buscarKpiPiorAlgoz,
-    buscarTop5Rivais
+    buscarTop5Rivais,
+    buscarTop5RivaisBarras
 };
